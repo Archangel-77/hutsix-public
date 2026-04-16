@@ -1,10 +1,9 @@
 # Hutsix (Hut6)
 
-![Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue)
-![Python](https://img.shields.io/badge/Python-3.10-3776AB)
-![CUDA](https://img.shields.io/badge/Acceleration-CUDA%20Supported-76B900)
-![Status](https://img.shields.io/badge/Status-Actively%20Developed-brightgreen)
-![License](https://img.shields.io/badge/License-Proprietary-red)
+[![Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue?logo=windows&logoColor=white)](https://github.com/Archangel-77/hutsix-public)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://github.com/Archangel-77/hutsix-public)
+[![CUDA](https://img.shields.io/badge/Acceleration-CUDA%20Supported-76B900?logo=nvidia&logoColor=white)](https://github.com/Archangel-77/hutsix-public)
+[![License](https://img.shields.io/badge/License-Proprietary-red)](https://github.com/Archangel-77/hutsix-public)
 
 Hutsix (Hut6) is a Windows desktop automation platform built with Python and PySide6.
 It lets users automate repetitive keyboard/mouse workflows through a profile-based visual system, without requiring custom scripts.
@@ -21,9 +20,11 @@ This repository is the public showcase for the project.
 
 - [Demo](#demo)
 - [Problem -> Solution](#problem---solution)
+- [Why Hutsix Over Alternatives?](#why-hutsix-over-alternatives)
 - [What Hutsix Does](#what-hutsix-does)
 - [Core Features](#core-features)
 - [Example Use Cases](#example-use-cases)
+- [Real-World Use Cases](#real-world-use-cases)
 - [Architecture Overview](#architecture-overview)
 - [Performance and Acceleration](#performance-and-acceleration)
 - [System Requirements](#system-requirements)
@@ -38,6 +39,7 @@ This repository is the public showcase for the project.
 - [Tech Stack](#tech-stack)
 - [Project Status](#project-status)
 - [Versioning and Changelog](#versioning-and-changelog)
+- [Latest Release](#latest-release)
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [License](#license)
@@ -57,6 +59,20 @@ Live demos, setup walkthroughs, and feature previews are available on the offici
 
 Many users repeat the same input sequences across desktop apps and games.
 Hutsix solves this by combining reliable trigger detection (hotkeys, pixels, image, OCR text) with controlled action playback, diagnostics, and profile management in one desktop app.
+
+## Why Hutsix Over Alternatives?
+
+| Feature | Hutsix | AutoHotkey | Pulover | MaCRO |
+|---------|--------|-----------|---------|-------|
+| Visual Profile System | ✅ | ❌ | ❌ | ⚠️ |
+| Pixel/Image/OCR Triggers | ✅ | ⚠️ Limited | ❌ | ❌ |
+| CUDA GPU Acceleration | ✅ | ❌ | ❌ | ❌ |
+| Diagnostics Per Binding | ✅ | ❌ | ❌ | ⚠️ |
+| No Coding Required | ✅ | ❌ | ✅ | ✅ |
+| Cross-Platform | ❌ | ❌ | ❌ | ❌ |
+| Free Forever | ✅ | ✅ | ✅ | ⚠️ |
+
+**Hutsix is for:** Gamers, content creators, and power users who need advanced automation with visual debugging and GPU acceleration.
 
 ## What Hutsix Does
 
@@ -88,6 +104,30 @@ When a profile is active, a watchdog engine continuously evaluates bindings and 
 - Input helper routines for full-screen apps
 - Fast profile switching across workflows
 - Sharing automation profiles with other users
+
+## Real-World Use Cases
+
+**Gaming:**
+- Auto-looting systems in MMOs
+- Buff management and ability rotations
+- Frame-perfect input sequences (fighting games)
+
+**Productivity:**
+- Data entry automation from screenshots
+- Form filling with OCR detection
+- Batch image processing triggers
+
+**Content Creation:**
+- Frame capturing for streaming overlays
+- Automated editing triggers during recording
+- Screenshot batch processing
+
+**Developer Tools:**
+- UI testing automation
+- Screenshot-based regression testing
+- Automated testing workflows
+
+Have a use case? Share it in our Discord: https://discord.gg/Sr5WUmeY
 
 ## Architecture Overview
 
@@ -285,6 +325,16 @@ Actively developed. Ongoing work focuses on reliability, diagnostics, UX, and fe
 
 - Current public showcase update: `2026-03-05`
 - Release updates and feature changes are announced through release artifacts and official Hutsix channels.
+
+## Latest Release
+
+Current: **v1.0.5** (March 10, 2026)
+
+Download:
+- 🪟 Windows MSI Installer: [Hutsix-1.0.5.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.5/Hutsix-1.0.5.msi)
+- 📦 Portable ZIP: [Hutsix-1.0.5.zip](https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.5/Hutsix-1.0.5.zip)
+
+📋 [Full Changelog](https://github.com/Archangel-77/hutsix-public/releases)
 
 ## Contributing
 
