@@ -1,280 +1,304 @@
 {
-  "version": "1.0.8",
+  "version": "1.1.0",
   "minimum_supported": null,
   "channel": "stable",
   "mandatory": false,
-  "published_at": "2026-05-27T14:24:47.054851+00:00",
+  "published_at": "2026-07-31T13:29:31.482451+00:00",
   "notes_url": null,
   "files": [
     {
       "name": "Hutsix-x64.msi",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/Hutsix-x64.msi",
-      "sha256": "78f8190eac7e79ff751aa64fdcd9b22f18c7d6dedf2f6943e1fe66c3cf94512a",
-      "size": 1592024
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/Hutsix-x64.msi",
+      "sha256": "50e736410d1e48deaace87f2fe742ec6ed22e92c52a747b82b2162e519dad591",
+      "size": 1593396
     },
     {
       "name": "cab1.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab1.cab",
-      "sha256": "f5a0e1b24c204f17ed836c1a0a2ded710dc5ce9584815c1ca202f481fa032158",
-      "size": 40519054
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab1.cab",
+      "sha256": "ff750faa75e59ad10e8aedda1784810e062e82ec11c29e6aef4f0672dd7e25b0",
+      "size": 40534611
     },
     {
       "name": "cab10.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab10.cab",
-      "sha256": "b331fe213c108cff65ffd9beb06420f5cc488681f9bb9acb472e966767eaa8af",
-      "size": 347934200
-    },
-    {
-      "name": "cab11.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab11.cab",
-      "sha256": "0526258772d5e7651106a660eb7174f5daa4b2b75cc59c8b6e09658d176179b0",
-      "size": 85591683
-    },
-    {
-      "name": "cab12.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab12.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab10.cab",
       "sha256": "c061437524f36a6ecfa2983cb7b7e5c0f2c549d6731667e334cd658c2202ca71",
       "size": 328694350
     },
     {
-      "name": "cab13.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab13.cab",
-      "sha256": "c29d345e92a507ee408061b9a6cecae31217c81fbfd77b2851990289b4da5392",
+      "name": "cab11.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab11.cab",
+      "sha256": "08cb305f784f547b6ba49f048641d29833dd83895feff26185bce5cf6cf6b6eb",
       "size": 328694352
     },
     {
-      "name": "cab14.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab14.cab",
-      "sha256": "9e7a3cae7eb3d85887eab37f29f6162256f8b7e7a9b3aafce0b6846872ead03c",
-      "size": 37342462
+      "name": "cab12.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab12.cab",
+      "sha256": "06dea780a6e6ef0b3632976ae08ed20e5a3fdd36d57dbe6e31d5928afe7d2af0",
+      "size": 37474239
     },
     {
-      "name": "cab15.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab15.cab",
-      "sha256": "2a87193517ebd7ab62689de4793a64551ef97631081c6626bc5f0e4f881eedd6",
-      "size": 114004519
-    },
-    {
-      "name": "cab16.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab16.cab",
+      "name": "cab13.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab13.cab",
       "sha256": "f954fb79406b0562be6205e68a3bb799249850e6368f2ac60255203331580e4b",
       "size": 79397355
     },
     {
-      "name": "cab17.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab17.cab",
-      "sha256": "2d799e769387e934a3d29212c39b28ebe25bfa4d1e0c58651b8b4e82a98f502a",
-      "size": 79642374
+      "name": "cab14.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab14.cab",
+      "sha256": "50fb817789d2ad7f3e43f83c6b15e488a5abbeae657e2ddde81d33b58a7324b8",
+      "size": 79515678
     },
     {
-      "name": "cab18.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab18.cab",
+      "name": "cab15.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab15.cab",
       "sha256": "01270f9a68cbcc154b88c5b6d17bce284094e7391624e9deaf121e9c4c7222c4",
       "size": 192015631
     },
     {
-      "name": "cab19.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab19.cab",
-      "sha256": "6aa2e4e3fd29d1f7506a4a35c440c520032f9a4549fd2f817b70daaf5f81f570",
+      "name": "cab16.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab16.cab",
+      "sha256": "d5263a70c3e63aaab2cb9405e93382c7d4132234ddd07f08716016f1b1cb8b64",
       "size": 192015633
     },
     {
+      "name": "cab17.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab17.cab",
+      "sha256": "53058a5cc101c4b52586e7b45f09be68b0718df70fd320a9f74563ffe9c6fd90",
+      "size": 63592048
+    },
+    {
+      "name": "cab18.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab18.cab",
+      "sha256": "018381ec2000ddb9e70dabf3134e0d780c72fde5ff1db1f821645329306fa021",
+      "size": 155802706
+    },
+    {
+      "name": "cab19.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab19.cab",
+      "sha256": "972a6a25e0cf730da1c80403a22aa9c2971adacbc684340a2aa05f3dd29483b9",
+      "size": 155802708
+    },
+    {
       "name": "cab2.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab2.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab2.cab",
       "sha256": "6c6856a87f519d39355f839673097220dd831370fc7140f45d8cb55321033c87",
       "size": 87633431
     },
     {
       "name": "cab20.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab20.cab",
-      "sha256": "74a8764c7b4128f92cc42cc5bf7463fdeb45255db6f3c57c043622c938eb3b7c",
-      "size": 63592048
-    },
-    {
-      "name": "cab21.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab21.cab",
-      "sha256": "018381ec2000ddb9e70dabf3134e0d780c72fde5ff1db1f821645329306fa021",
-      "size": 155802706
-    },
-    {
-      "name": "cab22.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab22.cab",
-      "sha256": "d8192b02acdfac15ebd8d9c7bd53cbf936c680a497300500f46465ca645ef252",
-      "size": 155802708
-    },
-    {
-      "name": "cab23.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab23.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab20.cab",
       "sha256": "4fc1823ccd4ae79a4cfb45924cf002d1c06b6755780c7f327582d39679c8c1e3",
       "size": 100685570
     },
     {
-      "name": "cab24.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab24.cab",
-      "sha256": "501d60e0817778e7788c4fcc637008272ad2959dbff6442e307e79e674032cd0",
+      "name": "cab21.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab21.cab",
+      "sha256": "695baf6df496e1065da29530a266c0e2e34dced48e9441840e41168d01374742",
       "size": 100685572
     },
     {
-      "name": "cab25.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab25.cab",
+      "name": "cab22.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab22.cab",
       "sha256": "858dce4b32677cad10f3632478257b9c9e8f444705890d25706d9db298eb5c3e",
       "size": 284876297
     },
     {
-      "name": "cab26.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab26.cab",
-      "sha256": "3a3ee206ffcc215f2d5383876372442fe0d2ba4f71edd8852ade03ef1cde203f",
+      "name": "cab23.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab23.cab",
+      "sha256": "67ceb9a0aba88ea234e6502ec440bd3a15f80a8813f5ea998956ca1af72c3a22",
       "size": 284876299
     },
     {
+      "name": "cab24.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab24.cab",
+      "sha256": "9201a6b9531b6a33bd0fa5f1b3e2b82726fa0e55d07cdf09ecf6ca17f306fd76",
+      "size": 89755395
+    },
+    {
+      "name": "cab25.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab25.cab",
+      "sha256": "c5ac8ae82fc2258f0c724480d33f81f2f6fbb1654eba197ad8642c9b7f50e107",
+      "size": 139432507
+    },
+    {
+      "name": "cab26.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab26.cab",
+      "sha256": "74b84a6cb448071df7f5d0f157bed4f97606fb5b42a25023570a936c829f9451",
+      "size": 68432455
+    },
+    {
       "name": "cab27.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab27.cab",
-      "sha256": "8449ea37c5b963a5c5c496b3c0f3dcc4896192c5fb65be6312b940363c61fc94",
-      "size": 83017695
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab27.cab",
+      "sha256": "302e706dbc718254d816b857754f6d1fd3e79e175bb4779cac3c3c995db6d0b6",
+      "size": 45322402
     },
     {
       "name": "cab28.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab28.cab",
-      "sha256": "9119890188b286210030db357d62c61c05c0d258dcf88c57acbbff0ec50bf316",
-      "size": 125808788
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab28.cab",
+      "sha256": "e7a4db5d65ccd38d1b4072adabfc6f5a2b12796962250f88e3f037e6de730c6a",
+      "size": 71978775
     },
     {
       "name": "cab29.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab29.cab",
-      "sha256": "e2377584e53a44822c9efbf25c8b19615b88fae19bc3d315406ec79f93c34a35",
-      "size": 43992258
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab29.cab",
+      "sha256": "18b44211fdca59acdfd6a719aa2951395f944ebdb6692eb18161b34a1bc1d5d0",
+      "size": 42938084
     },
     {
       "name": "cab3.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab3.cab",
-      "sha256": "d92c28fbc5059e95f6382e48eb9dba891e3f82d5f6f0b839b53d9d849c4e8f43",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab3.cab",
+      "sha256": "582c4f9dad2c3b6d96df24e5631ed47a51620146bfcba6234d17f0214c71c507",
       "size": 87633433
     },
     {
       "name": "cab30.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab30.cab",
-      "sha256": "73ac4084027e5d4e58e538f693afecf573ef55e13c35c11228754a554b3d6e58",
-      "size": 36003739
-    },
-    {
-      "name": "cab31.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab31.cab",
-      "sha256": "9a2d23e0c9c7e5c703f7017a6c38d25f89a01c123f0b82e1acf19bc83246c8b4",
-      "size": 42938118
-    },
-    {
-      "name": "cab32.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab32.cab",
-      "sha256": "62ff0a278a3cd4a25fc614919b6d2bc0e5a1fdd5bd24e457004771f52e3ad0cb",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab30.cab",
+      "sha256": "8206eb24c0ac00c0d0a4d0a0b9f18e4420d4ca86995d10abba4602b79ca6ae8b",
       "size": 230503438
     },
     {
+      "name": "cab31.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab31.cab",
+      "sha256": "5dce87a03e4ceb8c31b9b5603d0e7e4372a7d10f35256db513b9e243637aa43e",
+      "size": 18901628
+    },
+    {
+      "name": "cab32.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab32.cab",
+      "sha256": "c73e36b6f1bdbc4b3d470a4127056444181788cd512bc4c7ef792c221481414f",
+      "size": 50929107
+    },
+    {
       "name": "cab33.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab33.cab",
-      "sha256": "b8467bd6c1bda12ab6868b34383b7d816ad6190e3badcb545a0ca59f5ae0f155",
-      "size": 45726350
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab33.cab",
+      "sha256": "70f165693b332005b83c113a332f4a614ec1e135393245b25d7a94b261cdcc84",
+      "size": 50929109
     },
     {
       "name": "cab34.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab34.cab",
-      "sha256": "a91eee44342d4fe12ebbe6cc9f8622304642f6f86342b06b77affebee1cbb0c5",
-      "size": 25544188
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab34.cab",
+      "sha256": "23fedc1203a806e480f7333cf1becba36c32da687b163f08717bb0995eef9b22",
+      "size": 11386170
     },
     {
       "name": "cab35.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab35.cab",
-      "sha256": "a3fe99039baeaeb4baabfe83d39f2db200d179727dd873817117b7c04705c294",
-      "size": 38396247
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab35.cab",
+      "sha256": "1294f12ef9752aefa48e3c76dea2d6ce780d383e407667a9d0c29449546841ad",
+      "size": 106023717
     },
     {
       "name": "cab36.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab36.cab",
-      "sha256": "9f73aca36ecadbd5f80b7be54c30c7fa7e61b5430a44ced5dff0083012d78a44",
-      "size": 30546784
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab36.cab",
+      "sha256": "fbbc65beae2b1399c4b815e627eefc12e14a1bfe2c59225f28584c114ef302ef",
+      "size": 106023719
     },
     {
       "name": "cab37.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab37.cab",
-      "sha256": "c76bde29f8622520805a82a3dd4ae1fb77c605c0cf4fc808781ccd9e63517bed",
-      "size": 40638261
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab37.cab",
+      "sha256": "9544ca7fe7e724d8394952a0c901ccbae5139644e79127a5b27d1ce1a2d8c765",
+      "size": 18305406
     },
     {
       "name": "cab38.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab38.cab",
-      "sha256": "cb05d1b29cc21f01b58acb7f9a197dfeea50e22eb25df5ad684d16881a4fe6ec",
-      "size": 56518330
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab38.cab",
+      "sha256": "2bd14b7147f9949f2f24561eee5b97b9e1edfebadd7c7be57d995869eea5a679",
+      "size": 20849761
     },
     {
       "name": "cab39.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab39.cab",
-      "sha256": "daa86100659d36881170d7de0a681c08ae3de11be8a008a00756668b414ef3c1",
-      "size": 74036481
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab39.cab",
+      "sha256": "7486b6ce620068d24f1b1d8b33fba9303d271e522d81c3b34156e44bdb4f3b0c",
+      "size": 21370849
     },
     {
       "name": "cab4.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab4.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab4.cab",
       "sha256": "c47c4ab2071dd88169755475f3ccf6e450bd1792508edf124fc173decfaaa306",
       "size": 479280938
     },
     {
       "name": "cab40.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab40.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab40.cab",
+      "sha256": "8650a38126b904407f717ca6e9bafa883e8afc420369bc6b1a6966a9dc8bc5dd",
+      "size": 21930474
+    },
+    {
+      "name": "cab41.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab41.cab",
+      "sha256": "86a8bdc4b3177e61622906b660680ae0e82c384ed2361e1158ef418616960525",
+      "size": 27698291
+    },
+    {
+      "name": "cab42.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab42.cab",
+      "sha256": "798def7259b8620fbdb29acfdf1930150be5e632bd55094d7cbe82e988e354f2",
+      "size": 67473302
+    },
+    {
+      "name": "cab43.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab43.cab",
+      "sha256": "cc0c16d48ca3af6f2847c3aafb90d402c8d875399568df063c63e4fbfc1e786e",
+      "size": 18401357
+    },
+    {
+      "name": "cab44.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab44.cab",
       "sha256": "79317aec033135a0dc3f33dfacc9f1d7b00a0ad4082bafc0655fbb5fc17fb789",
       "size": 76680570
     },
     {
-      "name": "cab41.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab41.cab",
-      "sha256": "99496e174a7db804e2dea212c698134465893743424d6703d93dce436fe47cd8",
+      "name": "cab45.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab45.cab",
+      "sha256": "5be5b04974534587bb990ef0bcf99844be8b405498873af2c7f42e0f5eb2b45f",
       "size": 76680572
     },
     {
-      "name": "cab42.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab42.cab",
+      "name": "cab46.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab46.cab",
       "sha256": "7fa9b9f084f7157a00295ddc65d5603ffd96c15d7db9cdf624d95050d45446c3",
       "size": 518152669
     },
     {
-      "name": "cab43.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab43.cab",
-      "sha256": "a06003bb75720b113b8aede5503f053480d1dbc7bb16542ac496dfa782b062b9",
+      "name": "cab47.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab47.cab",
+      "sha256": "881a8daa248fbbc5fef8d10f424d08a74b895940981f502de6cdfe91d26d77c0",
       "size": 518152671
     },
     {
-      "name": "cab44.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab44.cab",
-      "sha256": "b8148292be50d9d45dc9b821b5dc0fdc20609295791b8a1f5b6c9c2abb35a0df",
-      "size": 9727857
+      "name": "cab48.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab48.cab",
+      "sha256": "f17c2a7bc7378321a26f2dda26bbf3f24b1a0089ea81ec0cdaa2eb451d02a385",
+      "size": 9753533
     },
     {
       "name": "cab5.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab5.cab",
-      "sha256": "2e63be300d741315243e1f75a3ddf4ce5dad7448a9bacae249a4e30354b3202c",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab5.cab",
+      "sha256": "6eeb9064b6599ea47c25d2bec9aad5f851adcdd39d1f6fbd11b138021f175385",
       "size": 479280940
     },
     {
       "name": "cab6.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab6.cab",
-      "sha256": "0e546ca1b20da8886b4dcd150a51ff7e1bd6ea16f2550eaf3c41a594e072b281",
-      "size": 85935138
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab6.cab",
+      "sha256": "63221b3c8896d1091f3de849a0230584f77aee6adf24347e491602e155b2a10d",
+      "size": 239080
     },
     {
       "name": "cab7.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab7.cab",
-      "sha256": "adc64d478a2166e742db7af3236c9f1db58e74413872a86e95dc724cdcf4ea02",
-      "size": 83365303
-    },
-    {
-      "name": "cab8.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab8.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab7.cab",
       "sha256": "f46a90ae3522f55b88e54e1e8d541f5ea89feb35a778b50c0b37c814133b0278",
       "size": 195754679
     },
     {
-      "name": "cab9.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.8/cab9.cab",
-      "sha256": "dc0d4df9f03f8b1c16784568fc69bfbf91c730dfb9f61ab2b75dc867e6c7b3bb",
+      "name": "cab8.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab8.cab",
+      "sha256": "35d31fc48fa1876727e2c1c23f2efcf16fefab4f5e85c8d8893120dc6fcfc9a0",
       "size": 195754681
+    },
+    {
+      "name": "cab9.cab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v1.1.0/cab9.cab",
+      "sha256": "bd74c1d6a72aa48f610ab3fa96eb635a81cfc0fcfb3ec2f79a47e84e4bce458f",
+      "size": 1951742
     }
   ]
 }
