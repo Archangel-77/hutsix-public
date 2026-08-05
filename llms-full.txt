@@ -1,0 +1,79 @@
+# Hutsix — Windows Automation Toolkit
+
+Hutsix is a Windows automation toolkit with keyboard macros, OCR and image screen triggers, and AI-assisted calibration. Free 7-day trial for Windows 10/11.
+
+## What Hutsix does
+
+- Keyboard Macros — Map and fire keyboard actions from global hotkeys.
+- OCR & Image Triggers — Detect on-screen text and visual patterns you define.
+- AI Calibration — OpenCV + AI-assisted calibration keeps triggers accurate.
+- Profiles — Switchable profiles with foreground-window detection.
+
+Free 7-day trial. Full feature set during the trial. A paid license is required after it expires; the trial cannot be reset by reinstalling.
+
+## How it works
+
+Hutsix organizes automation into profiles made of bindings. Each binding pairs a trigger with an action: a trigger detects an event (global hotkey, pixel color, image match, or OCR text), and an action plays a keyboard or mouse sequence. When a profile is active, a watchdog engine continuously evaluates bindings and executes actions only when the configured conditions are satisfied.
+
+1. Install a Hutsix release and launch the app.
+2. Create or import a profile.
+3. Add a trigger (hotkey, pixel, image, or OCR text).
+4. Attach an action sequence (keyboard or mouse playback).
+5. Activate the profile and validate behavior with the Action Monitor and per-binding diagnostics.
+
+## Use cases
+
+- Gaming: Auto-looting in MMOs, buff management and ability rotations, frame-perfect input sequences for fighting games.
+- Productivity: Data-entry automation from screenshots, form filling with OCR detection, batch processing triggers.
+- Content Creation: Frame capturing for streaming overlays, automated editing triggers during recording, screenshot batch processing.
+- Developer Tools: UI testing automation and screenshot-based regression testing workflows.
+
+## System requirements
+
+- OS: Windows 10/11 (64-bit)
+- CPU: 6+ logical cores
+- RAM: 16 GB for core automation; 32 GB recommended for AI modules (YOLOX/OCR/training)
+- GPU: NVIDIA with CUDA recommended for best YOLOX/OCR performance (8 GB+ VRAM preferred); CPU fallback supported
+- Storage: SSD with 10 GB+ free space (more for datasets and models)
+
+Hutsix supports both CPU and GPU execution paths. CUDA-enabled acceleration applies to supported AI and vision workloads, and features fall back to CPU when GPU acceleration is unavailable.
+
+## Privacy
+
+Hutsix is a local desktop application. Profiles, logs, and runtime data are stored locally on your system. Licensing checks may contact the licensing provider during activation or verification.
+
+## FAQ
+
+Q: Is Hutsix free?
+A: Hutsix offers a free 7-day trial with the full feature set. A paid license is required after the trial expires.
+
+Q: Does Hutsix work with Windows 11?
+A: Yes — Hutsix supports Windows 10 and Windows 11, 64-bit.
+
+Q: Can the Hutsix trial be reset by reinstalling?
+A: No. The trial is anchored on your machine and cannot be reset by reinstalling the app.
+
+Q: Is coding required to use Hutsix?
+A: No. Typical usage is fully UI-driven; no custom scripts are needed.
+
+Q: Can I share my profiles?
+A: Yes. Profiles are reusable and shareable through import and export.
+
+Q: Does Hutsix inject into game memory?
+A: No. Hutsix is designed around input simulation and screen/foreground detection.
+
+Q: Does Hutsix support GPU acceleration?
+A: Yes. CUDA-enabled acceleration is available for supported AI and vision workloads, with automatic CPU fallback when a GPU is unavailable.
+
+Q: Can automation violate third-party terms?
+A: Yes. Some apps and services prohibit automation. Users are responsible for how they use the software.
+
+## Links
+
+- Download Free Trial (v2.1.0): https://github.com/Archangel-77/hutsix-public/releases/download/v2.1.0/HutsixSetup.exe
+- Buy License: https://panpanageas.gumroad.com/l/rrstan
+- Releases: https://github.com/Archangel-77/hutsix-public/releases
+- Discord: https://discord.gg/Sr5WUmeY
+- YouTube: https://www.youtube.com/@Hutsix
+
+Hutsix v2.1.0 — Windows 10/11 (64-bit)

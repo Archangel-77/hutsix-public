@@ -1,0 +1,19 @@
+# Hutsix — Windows Automation Toolkit
+
+> Hutsix is a Windows desktop automation platform built with Python and PySide6. It automates repetitive keyboard and mouse workflows through a visual, profile-based system with no coding required. Triggers (global hotkeys, pixel color, image match, OCR text) drive keyboard/mouse action sequences, with per-binding diagnostics, focus guard, cooldowns, and optional CUDA GPU acceleration for AI/vision workloads. Runs on Windows 10/11 (64-bit).
+
+## Official pages
+- [Hutsix Homepage](https://archangel-77.github.io/hutsix-public/): Product overview, how it works, use cases, system requirements, and FAQ
+- [GitHub Repository](https://github.com/Archangel-77/hutsix-public): Public showcase, README, and release history
+- [Releases & Downloads](https://github.com/Archangel-77/hutsix-public/releases): Windows installers and changelog
+- [Buy License](https://panpanageas.gumroad.com/l/rrstan): Paid license after the 7-day free trial
+
+## Community & media
+- [Discord](https://discord.gg/Sr5WUmeY): Community discussion and support
+- [YouTube](https://www.youtube.com/@Hutsix): Demos, walkthroughs, and feature previews
+
+## Key facts
+- Platform: Windows 10/11 (64-bit)
+- License: Proprietary software with a free 7-day trial
+- The trial cannot be reset by reinstalling
+- Typical usage is fully UI-driven (no coding required)
