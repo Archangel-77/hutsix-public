@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://archangel-77.github.io/hutsix-public/sitemap.xml
