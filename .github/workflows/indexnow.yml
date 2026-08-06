@@ -1,0 +1,21 @@
+name: IndexNow ping
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    name: Ping IndexNow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping pages
+        env:
+          KEY: 5a8c3e7f9b1d4a2c6e8f0b3d5a7c9e1f
+        run: |
+          BASE="https://archangel-77.github.io/hutsix-public"
+          curl -sS -o /dev/null -w "homepage:%{http_code}\n" \
+            "https://api.indexnow.org/indexnow?url=${BASE}/&key=${KEY}"
+          curl -sS -o /dev/null -w "sitemap:%{http_code}\n" \
+            "https://api.indexnow.org/indexnow?url=${BASE}/sitemap.xml&key=${KEY}"
