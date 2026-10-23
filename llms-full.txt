@@ -70,10 +70,10 @@ A: Yes. Some apps and services prohibit automation. Users are responsible for ho
 
 ## Links
 
-- Download Free Trial (v2.1.0): https://github.com/Archangel-77/hutsix-public/releases/download/v2.1.0/HutsixSetup.exe
+- Download Free Trial: https://github.com/Archangel-77/hutsix-public/releases/download/v2.1.0/HutsixSetup.exe
 - Buy License: https://panpanageas.gumroad.com/l/rrstan
 - Releases: https://github.com/Archangel-77/hutsix-public/releases
 - Discord: https://discord.gg/Sr5WUmeY
 - YouTube: https://www.youtube.com/@Hutsix
 
-Hutsix v2.1.0 — Windows 10/11 (64-bit)
+Hutsix v3.1.0 — Windows 10/11 (64-bit)
