@@ -57,7 +57,7 @@ Live demos, setup walkthroughs, and feature previews are available on the offici
 
 ## Problem -> Solution
 
-Many users repeat the same input sequences across desktop apps and games.
+Many users repeat the same input sequences across desktop apps and workflows.
 Hutsix solves this by combining reliable trigger detection (hotkeys, pixels, image, OCR text) with controlled action playback, diagnostics, and profile management in one desktop app.
 
 ## Why Hutsix Over Alternatives?
@@ -70,9 +70,9 @@ Hutsix solves this by combining reliable trigger detection (hotkeys, pixels, ima
 | Diagnostics Per Binding | ✅ | ❌ | ❌ | ⚠️ |
 | No Coding Required | ✅ | ❌ | ✅ | ✅ |
 | Cross-Platform | ❌ | ❌ | ❌ | ❌ |
-| Free Forever | ✅ | ✅ | ✅ | ⚠️ |
+| Free Forever | ❌ | ✅ | ✅ | ⚠️ |
 
-**Hutsix is for:** Gamers, content creators, and power users who need advanced automation with visual debugging and GPU acceleration.
+**Hutsix is for:** Power users, QA/testers, and content creators who need advanced automation with visual debugging and GPU acceleration.
 
 ## What Hutsix Does
 
@@ -107,25 +107,25 @@ When a profile is active, a watchdog engine continuously evaluates bindings and 
 
 ## Real-World Use Cases
 
-**Gaming:**
-- Auto-looting systems in MMOs
-- Buff management and ability rotations
-- Frame-perfect input sequences (fighting games)
-
 **Productivity:**
 - Data entry automation from screenshots
 - Form filling with OCR detection
 - Batch image processing triggers
+
+**Developer Tools & QA:**
+- UI testing automation
+- Screenshot-based regression testing
+- Automated testing workflows
 
 **Content Creation:**
 - Frame capturing for streaming overlays
 - Automated editing triggers during recording
 - Screenshot batch processing
 
-**Developer Tools:**
-- UI testing automation
-- Screenshot-based regression testing
-- Automated testing workflows
+**Gaming:**
+- Repetitive in-game input routines
+- Managing buffs and ability rotations
+- Timing-sensitive input sequences
 
 Have a use case? Share it in our Discord: https://discord.gg/Sr5WUmeY
 
@@ -323,16 +323,15 @@ Actively developed. Ongoing work focuses on reliability, diagnostics, UX, and fe
 
 ## Versioning and Changelog
 
-- Current public showcase update: `2026-03-05`
+- Current public showcase update: `2026-10-20`
 - Release updates and feature changes are announced through release artifacts and official Hutsix channels.
 
 ## Latest Release
 
-Current: **v1.0.5** (March 10, 2026)
+Current: **v3.1.0** (October 20, 2026)
 
 Download:
-- 🪟 Windows MSI Installer: [Hutsix-1.0.5.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.5/Hutsix-1.0.5.msi)
-- 📦 Portable ZIP: [Hutsix-1.0.5.zip](https://github.com/Archangel-77/hutsix-public/releases/download/v1.0.5/Hutsix-1.0.5.zip)
+- 🪟 Windows MSI Installer: [Hutsix-x64.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/Hutsix-x64.msi)
 
 📋 [Full Changelog](https://github.com/Archangel-77/hutsix-public/releases)
 
