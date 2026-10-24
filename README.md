@@ -323,15 +323,15 @@ Actively developed. Ongoing work focuses on reliability, diagnostics, UX, and fe
 
 ## Versioning and Changelog
 
-- Current public showcase update: `2026-10-20`
+- Current public showcase update: `2026-10-24`
 - Release updates and feature changes are announced through release artifacts and official Hutsix channels.
 
 ## Latest Release
 
-Current: **v3.1.0** (October 20, 2026)
+Current: **v3.2.0** (October 24, 2026)
 
-Download:
-- 🪟 Windows MSI Installer: [Hutsix-x64.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/Hutsix-x64.msi)
+Download (recommended): [Hutsix on Gumroad](https://panpanageas.gumroad.com/l/rrstan)
+- 🪟 Windows MSI Installer: [Hutsix-x64.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/Hutsix-x64.msi)
 
 📋 [Full Changelog](https://github.com/Archangel-77/hutsix-public/releases)
 
