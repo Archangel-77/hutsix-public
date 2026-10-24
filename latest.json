@@ -1,191 +1,192 @@
 {
-  "version": "3.1.0",
+  "version": "3.2.0",
   "minimum_supported": null,
   "channel": "stable",
   "mandatory": false,
-  "published_at": "2026-10-20T17:11:26.814232+00:00",
+  "published_at": "2026-10-24T16:52:27.631044+00:00",
   "notes_url": null,
-  "notes": "**Hutsix v3.1.0**(released)\n\n### Keyboard & Mouse Actions\n- Actions now have a **Min delay** setting (10 ms by default): the shortest pause allowed between steps. It keeps a sped-up recording from running faster than a game can keep up with.\n- When a recorded pause would end up shorter than that, Hutsix waits for your minimum instead. Your saved actions are never changed.\n- If the settings still leave some pauses shorter than 10 ms (about one frame at 60 FPS), the action window warns you that the game may skip those steps.\n- Actions you recorded earlier keep behaving the same, apart from any pause that was shorter than 10 ms \u2014 those now take 10 ms.",
+  "notes": "**Hutsix v3.2.0**(released)\n\n### Main Window\n- The main window has a clearer layout. Profile tools (Profile Manager, Run Profile, Action Monitor, Export Profile, Import Profile) now sit together in a **Profiles** section.\n- **Settings** is now its own section with just the Settings button.\n\n### Running Profiles\n- New **Run Profile** window: pick a profile and start, pause or stop it in one place, with a live status indicator. The window stays live, so you can watch a profile run and steer it.\n- **Auto Activate**, **Auto Pause On Focus Loss** and **Global Hotkeys** moved here from Settings.\n- A tray icon shows whether a profile is running, paused or idle, and lets you pause or stop it without opening a window.\n- Closing the dashboard keeps Hutsix running in the tray, so a profile you started keeps going; choose **Exit Hutsix** in the tray menu to quit. You can turn this off in Settings to make the \u00d7 button exit the app as before.\n- If the tray icon is gone (for example after Explorer restarts), closing the window now quits Hutsix completely instead of leaving it running with no window and no icon to reach it.\n- Global hotkeys now stay registered while Hutsix is open instead of being re-registered every time a profile starts or stops.\n- A **watchdog** binding whose profile does not record **Also Pause While Active** no longer turns into that profile's pause guard: the missing value was read as \"on\" while the binding list showed it as off, so a hand-edited or older profile could pause every other binding whenever that trigger matched. The switch is opt-in everywhere now, which is what the binding list and the documentation have always said.\n\n### Settings\n- Settings now holds only application preferences: appearance, the boot master switch, screen-capture hiding, tray behaviour, log level and the hidden-popup reset.\n- New **Appearance** pickers: theme (light / dark / follow Windows), accent colour (ocean / emerald / amber) and density. Changes apply to the whole app immediately and are written to disk straight away, so they survive even a forced quit.\n- **Compact** density now genuinely saves space \u2014 every control is 4 px shorter \u2014 instead of only nudging padding.\n- Changing **Log Level** takes effect immediately \u2014 no restart \u2014 and `DEBUG` now also includes messages from the bundled libraries, so troubleshooting shows what is actually failing.\n\n### Action Monitor\n- Triggers that are dropped no longer disappear silently: the monitor now shows a **skipped** row when a hotkey fires while the profile is paused or the runtime has stopped, and once per episode when a screen trigger is still waiting out its own cooldown.\n- \"Action queue paused/resumed\" rows read correctly again instead of being reworded to \"Ran queue paused\".\n\n### Trigger speed\n- Screen triggers now read the screen **once per check** instead of once per watched pixel. A 20-point watch went from ~585 ms of overhead to ~0.2 ms, so a multi-point trigger no longer lags behind the action it should fire.\n- All triggers watching the same monitor now share a **single** screen read per check, and Hutsix captures only the part of the screen those triggers actually watch instead of the whole monitor. On a 1080p HDR display a full-monitor capture cost about 200 ms; the shared capture now costs a fraction of that and serves every trigger from it.\n- A captured frame is never used if it is older than the trigger's own checking interval, so a fast trigger can no longer act on a picture that is a second old.\n- Triggers on the same monitor now judge the same captured instant instead of slightly different moments, so two triggers reacting to the same change agree.\n- When nothing on screen has changed, Hutsix reuses the previous answer instead of re-running text recognition or image detection: an unchanged frame costs about 1 ms instead of 19-56 ms. The comparison is pixel-exact, so a result is only reused for an identical frame.\n- On HDR displays a trigger no longer stalls for up to 1.5 s when the desktop is idle. Hutsix reuses the last frame the desktop produced, because an unchanged desktop has no newer frame to wait for.\n- Pixel and region triggers now check every 33 ms on HDR and region captures as well (previously 100 ms), so they react as quickly as a normal pixel trigger: a 20-point HDR check measures ~0.3 ms.\n- The first image-based trigger after starting a profile now fires immediately: the detection model is loaded in the background at start instead of on the first match, which removed a ~4 s delay.\n- Template matching now only uses the GPU when the watched region is large enough for it to be faster, and keeps small regions on the CPU where they are up to 1.7x quicker. This also fixed a bug that made the GPU path silently never run.\n- On a machine without a usable NVIDIA GPU, text and image triggers check every 0.5 s instead of competing with the rest of the app for CPU time.\n- A single slow binding can no longer monopolise the watcher: each trigger measures its own cost and slows down when it would take more than about half a core, and an overrun is recorded in Diagnostics.\n\n### Tips & Tricks\n- New **Tips & Tricks** window in the System group: short, task-focused cards that walk through building a profile, choosing a trigger, recording an action, creating a dataset, training a model and wiring it back into a trigger.\n- The cards open **together with the main window**, parked beside the dashboard, so they are found without hunting for a button. Turn off **Open Tips & Tricks when Hutsix starts** at the bottom of the window if you would rather it stayed closed; closing the window is enough to hide it for the rest of the session.\n- Added **Reset Tips & Tricks** to Settings: it turns the startup card window back on, returns to the first card and restores the window's default size.\n- Move through the cards with **Next** and **Previous** (or the arrow keys) and jump straight to a topic with the category list. Hutsix remembers the card you were on.\n- Each card can open the window it describes, so guidance and the actual dialog are one click apart.\n- The window stays open while a profile runs and is hidden from your own screen captures, so it can never trigger the automation it is explaining.\n- The Help window now follows appearance changes immediately instead of keeping its old text colours until reopened.\n- The **Tips & Tricks** button now shows its ampersand. Windows treats `&` as a keyboard-shortcut marker, so the label used to appear as \"Tips Tricks\".\n\n### Running as administrator\n- Hutsix asks Windows for administrator rights at start. That is deliberate, not a default we forgot to change: Windows blocks input from a normal process into a window that runs as administrator, so automating a game or launcher that runs elevated only works when Hutsix is elevated too. Updates are also installed into `Program Files`, which needs the same rights.\n- If you decline the prompt, Hutsix still runs and now tells you what is affected instead of failing silently: input sent to elevated apps is ignored and updates may fail to install.\n- The Run Profile window shows a notice while Hutsix is not running as administrator, so \"my actions fire but the game ignores them\" has a visible cause.\n- Headless runs (profile auto-start) now honour `HUTSIX_SKIP_ADMIN` by value: only `1`/`true`/`yes`/`on` disables elevation. Previously any value did \u2014 including the `0` shown in `.env.example` \u2014 so a headless run could quietly lose the ability to drive an elevated game while the app itself elevated normally.\n\n### Licensing\n- Activation is more secure: your licence is verified online and the check is built into the app itself, so it can no longer be changed by editing configuration files.\n- Licences you have already activated keep working as before.\n- The installer now carries the HUTSIX banner, and its licence screen also states the third-party software terms. The full LGPL texts for the libraries that require them now ship with the installer.\n- Fixed two characters in the licence screen that rendered as garbage text: the copyright symbol and a dash.\n- The bundled third-party notice list was rebuilt from what the application actually ships, so versions and licence names now match the build.\n\n### Updates\n- Updates are much smaller now: Hutsix downloads only the files that actually changed instead of the whole app again.\n- Every update is checked to make sure it really came from Hutsix before anything is installed, and the app keeps a backup so it can put things back if a new version fails to start.",
   "files": [
     {
       "name": "Hutsix-x64.msi",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/Hutsix-x64.msi",
-      "sha256": "9cba0da2a26244c87b7cafd61dbe9299e5b1de990e488ab7ab8d69f98d0122e2",
-      "size": 1451938
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/Hutsix-x64.msi",
+      "sha256": "df72e48fc86bbc35f017772fe1aa88a6997e27c71d7f9d7ec0870a53a5fcfeb2",
+      "size": 1446887
     },
     {
       "name": "cab1.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab1.cab",
-      "sha256": "6e0e769a73e1529e9fa56d66e9bb071b3feaa2f78ef08b33dd18315d7075afa2",
-      "size": 39534727
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab1.cab",
+      "sha256": "5f975537f259c6de35b64a3352c9f410375ddcfa88c3983c65f99208507869e8",
+      "size": 43200067
     },
     {
       "name": "cab10.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab10.cab",
-      "sha256": "70b900b56230074aec59c725e25bdea02fd7da540054619027b3c00a5f1d2133",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab10.cab",
+      "sha256": "565ef48df631bad2749af11038f3237e05f5ad3c719aad83f4a452ed7a21cba5",
       "size": 63582394
     },
     {
       "name": "cab11.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab11.cab",
-      "sha256": "ad000498d038b932f100e78a737270635456c27b7fbc1304933d9e3fad4f74ea",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab11.cab",
+      "sha256": "2f2f833ddeee8bdb3118b95b67894f630f61e758b4f6edee122a87ea16f9b2ed",
       "size": 155802706
     },
     {
       "name": "cab12.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab12.cab",
-      "sha256": "7c1cda76b2993f7c3f261153c57d6ccd57de81e5c79c45890999459180448361",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab12.cab",
+      "sha256": "087bfb36ea71f050ce08fe1e85fa3b1ebeb9733ad9cbf958dac169aa59a50108",
       "size": 100685570
     },
     {
       "name": "cab13.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab13.cab",
-      "sha256": "bf8cc1c0b4b6715c3d5209042faa004808f2bb2e96046b977b44961343d3c043",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab13.cab",
+      "sha256": "c39151fae9ed1b15bbaab4f8556c3128a00f70c77aa282b9447a13fc6ce146cf",
       "size": 284876297
     },
     {
       "name": "cab14.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab14.cab",
-      "sha256": "7c53e1d2d8bc27d495ee5cf9ec16aa81cfd3cf41f59d0307dd4dea1d24ba79db",
-      "size": 83019216
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab14.cab",
+      "sha256": "8b0094335403b54942135bec71c110cde87e42c88bbbfca5024c47d0634c00a2",
+      "size": 83518760
     },
     {
       "name": "cab15.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab15.cab",
-      "sha256": "077dad45244a2577fc268b29c982f69a71ca8c70e295a65a31726a1c6063f972",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab15.cab",
+      "sha256": "95eaa16ed61c8050893fe59f7282d171c76eb60c661ec604e70ad0f4e8728f95",
       "size": 139432507
     },
     {
       "name": "cab16.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab16.cab",
-      "sha256": "c8caaa6ae2189ae98b5287c0f6ee5aaa31ba9b69737b91ee22c14474a7460637",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab16.cab",
+      "sha256": "f6f9956944a19e77122dd24e282f4fd8edd39080d06e50ec84be236466e3e811",
       "size": 77749422
     },
     {
       "name": "cab17.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab17.cab",
-      "sha256": "1deeb15f5f238f0e214c530669e35a3ddfd2759f4540c8285441181cf3d912a8",
-      "size": 77759791
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab17.cab",
+      "sha256": "c1ba1a625a09dfc95c2a82548cc4a26e97d0e7e77892813288a3944ae0f8cbcf",
+      "size": 77760498
     },
     {
       "name": "cab18.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab18.cab",
-      "sha256": "f00e9652776dbd16bff1f3ca18aa6f855dc8d61f787fc4d04fee6f7c75412e48",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab18.cab",
+      "sha256": "6bf82fc164070b781044687393411c76d34a58212dad35ae1d00c5be901f86cc",
       "size": 230503438
     },
     {
       "name": "cab19.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab19.cab",
-      "sha256": "240588e4cdac77385709b75d84626feaab6e1d02e14edd3c685fbdf31ec3cf1e",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab19.cab",
+      "sha256": "a57eaaa31ce87238f88a8c0d184398c9d62a3a03d6a308fbd3fa28930d85b590",
       "size": 17778319
     },
     {
       "name": "cab2.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab2.cab",
-      "sha256": "00638892a2d212a441fa7f5fbbde102d821680f0a1c65540d49acca632929715",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab2.cab",
+      "sha256": "654736e6f9e7069f58aef7d581a1c91aa825edde9d11e6eaed57cd022810632b",
       "size": 87633431
     },
     {
       "name": "cab20.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab20.cab",
-      "sha256": "66ad9dad51078a8f2cd84aca223aaa39c91ada600b2a7eb5b81650657f375bd2",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab20.cab",
+      "sha256": "4ff405634873c906db67970a16c36b8eccd2fd7fa1d2096d18507c1444d910f9",
       "size": 50929107
     },
     {
       "name": "cab21.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab21.cab",
-      "sha256": "682b26e89c7cdf010756913ffe2a1992f1b0ee37ebf38f6e110208f19436d965",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab21.cab",
+      "sha256": "1bc9a94635ec4039864d5e4df003684c95def99445818e534a97a5ae33eca473",
       "size": 11385009
     },
     {
       "name": "cab22.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab22.cab",
-      "sha256": "20218b9476ec361ff6b1b02eb3cf8b90869f5e58383eed01eb6b83ed25a1a75b",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab22.cab",
+      "sha256": "296f68aeaec24f9a4153bd78583dd2f7b42eb51b0ad4f5a7a730c10720e2bc4d",
       "size": 106023717
     },
     {
       "name": "cab23.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab23.cab",
-      "sha256": "bee2c4a0409b0e5dd12f3dd7701314fd966a1c51618a1aa55ee163f0e42232ab",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab23.cab",
+      "sha256": "45079236128bbb188bd9288fd8a91a7e9003f3d4f126efb8ad4f672b1defeebc",
       "size": 39157048
     },
     {
       "name": "cab24.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab24.cab",
-      "sha256": "2c7ab620aee00667fb2c0e8fd9ce6e4e93fc638acbe679cc72ec14d0cfde2e21",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab24.cab",
+      "sha256": "9e2deff1b154681c94d53dedd6b5ab7d7d27226f48fae6af63a3029f5220d06c",
       "size": 21445062
     },
     {
       "name": "cab25.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab25.cab",
-      "sha256": "5e4fb74d9e5bb0634a7da92e9be0b867aa3fe4b20b633a277e70a143f8004210",
-      "size": 63626202
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab25.cab",
+      "sha256": "7ee58439072056035cc01a6ee9d57d39963675a27a8a56477b7eb8223d9f3d7a",
+      "size": 63627035
     },
     {
       "name": "cab26.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab26.cab",
-      "sha256": "b7a95211b2330184c0d19b2790f9ff3ff9e7695be79d4f2e585382872b9bcec4",
-      "size": 22492279
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab26.cab",
+      "sha256": "51f13d503bf722580d4307201880068de52665ed099311ae483cea93d0a64210",
+      "size": 22508123
     },
     {
       "name": "cab27.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab27.cab",
-      "sha256": "4c085560d23397df47eeeb1e4f239dbbed7bf2d51ee356c9e23a67f344f0b90d",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab27.cab",
+      "sha256": "65242099257c7dcd3021706ff4a344a373089fbcb4e139c0645e6489bf2a8551",
       "size": 76680570
     },
     {
       "name": "cab28.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab28.cab",
-      "sha256": "fe00763d150318eaedd6e8785d0589c8b5fb58da47930371e2402d3f90c7d8d1",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab28.cab",
+      "sha256": "a4ffebc71ad4eeee1e361c74bbde5e099d99b33e47d74958b17747055ff127c0",
       "size": 518152669
     },
     {
       "name": "cab29.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab29.cab",
-      "sha256": "c42fbf0b8ca9207225753eccb0dfacea1f4c5b3249dd008b30ba7daf684b5cd1",
-      "size": 9116515
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab29.cab",
+      "sha256": "618c4795c59261011fab105ca9e5581f6aaaa789084e85cba252850cf6b9dd06",
+      "size": 9120351
     },
     {
       "name": "cab3.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab3.cab",
-      "sha256": "24180e2db15092192b5cb82b3ac17643620952fad0367d5c68357c37a25245a2",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab3.cab",
+      "sha256": "f76cbf6c028aaa68277bf8ea9ce3531b7105f49a37c958c9225ea9dcf867745a",
       "size": 479280938
     },
     {
       "name": "cab4.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab4.cab",
-      "sha256": "b44d2004f51a19fbf2971a3fbcadf3eea1053794f3aa5dbceeafcfc7add3d3a1",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab4.cab",
+      "sha256": "27c0a6614474276f86aeee3f5f534a92b4b0ebbe08eb8f48d895f7922303bef1",
       "size": 239046
     },
     {
       "name": "cab5.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab5.cab",
-      "sha256": "cea60bbc8bbba1ab11b2b5e6366b06ffb0950b85f7c2abd0d85a7e28e353ab33",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab5.cab",
+      "sha256": "158e46c6924ec452baba5e2b6bcc4cd44181f28bea58cfc9899844b75bcd957a",
       "size": 195754679
     },
     {
       "name": "cab6.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab6.cab",
-      "sha256": "c99212c930963ebafb3fa50feb3c0c172cf8ad447bd7bdcd32a991a5cec85bdb",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab6.cab",
+      "sha256": "e164bc020f40d0c77cc98b9b4b690c7ac6aa98d197b48a3a015fdccf19748001",
       "size": 1951706
     },
     {
       "name": "cab7.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab7.cab",
-      "sha256": "9c152cf406945bdb4bce292d12504b2dfe06fc12a6b9f7bf4fa30b6aa2451709",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab7.cab",
+      "sha256": "7c5148d000138211a1030ef39b07df12bbb8893ee3c889472f6fda155cbde334",
       "size": 328694350
     },
     {
       "name": "cab8.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab8.cab",
-      "sha256": "29a78ace417c01c81c4b07ad627633c441a14352dbee43c177b4789dcdf8a26b",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab8.cab",
+      "sha256": "caf4c7085d64e5482b585bf2f0ebe1daf35c6dbf2da3563aae197bf82e1b8402",
       "size": 116854087
     },
     {
       "name": "cab9.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.1.0/cab9.cab",
-      "sha256": "ce0ead8313ee87f847128e7fbeded2cf7bbfb16ed9ae270f5a032fc6027554c5",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/cab9.cab",
+      "sha256": "9470aa6a9f18051d28c06afffa40367bb1a0afa2fc193aebb492dabbc67320aa",
       "size": 192015631
     }
-  ]
+  ],
+  "payload_manifest_url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/payload-3.2.0.json"
 }
