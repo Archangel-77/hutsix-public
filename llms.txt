@@ -1,12 +1,14 @@
 # Hutsix — Windows Automation Toolkit
 
-> Hutsix is a Windows desktop automation platform built with Python and PySide6. It automates repetitive keyboard and mouse workflows through a visual, profile-based system with no coding required. Triggers (global hotkeys, pixel color, image match, OCR text) drive keyboard/mouse action sequences, with per-binding diagnostics, focus guard, cooldowns, and optional CUDA GPU acceleration for AI/vision workloads. Runs on Windows 10/11 (64-bit).
+> Hutsix is a Windows desktop automation platform built with Python and PySide6. It automates repetitive keyboard and mouse workflows through a visual, profile-based system with no coding required. Triggers (global hotkeys, pixel color, image match, OCR text, trained AI image model) drive keyboard/mouse action sequences, with per-binding diagnostics, focus guard, cooldowns, and optional CUDA GPU acceleration for AI/vision workloads. Runs on Windows 10/11 (64-bit). Free 7-day trial, then a one-time $49 USD license.
 
 ## Official pages
 - [Hutsix Homepage](https://archangel-77.github.io/hutsix-public/): Product overview, how it works, use cases, system requirements, and FAQ
 - [GitHub Repository](https://github.com/Archangel-77/hutsix-public): Public showcase, README, and release history
 - [Releases & Downloads](https://github.com/Archangel-77/hutsix-public/releases): Windows installers and changelog
-- [Buy License](https://panpanageas.gumroad.com/l/rrstan): Paid license after the 7-day free trial
+- [Buy License](https://panpanageas.gumroad.com/l/rrstan): One-time $49 USD license after the 7-day free trial
+- [Hutsix vs AutoHotkey](https://archangel-77.github.io/hutsix-public/vs/autohotkey/): Honest comparison — scripting power versus no-code visual triggers
+- [Hutsix vs GS Auto Clicker](https://archangel-77.github.io/hutsix-public/vs/gs-auto-clicker/): Timer-based clicking versus screen-aware conditional automation
 
 ## Community & media
 - [Discord](https://discord.gg/Sr5WUmeY): Community discussion and support
@@ -14,6 +16,8 @@
 
 ## Key facts
 - Platform: Windows 10/11 (64-bit)
+- Price: one-time $49 USD, no subscription
+- Download: Softpedia listing for the free trial; latest build on GitHub Releases
 - License: Proprietary software with a free 7-day trial
 - The trial cannot be reset by reinstalling
 - Typical usage is fully UI-driven (no coding required)
