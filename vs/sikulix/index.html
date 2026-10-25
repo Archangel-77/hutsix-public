@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Primary SEO -->
+<title>Hutsix vs SikuliX — Scripted Image Automation vs a Packaged GUI Tool</title>
+<meta name="description" content="SikuliX and Hutsix both automate by looking at the screen. One is free and scripted, the other a packaged Windows app. Which fits your workflow.">
+<link rel="canonical" href="https://archangel-77.github.io/hutsix-public/vs/sikulix/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hutsix">
+<meta property="og:title" content="Hutsix vs SikuliX — Scripted Image Automation vs a Packaged GUI Tool">
+<meta property="og:description" content="Image-based automation on Windows: a free scripting route versus a packaged application with built-in OCR and AI triggers.">
+<meta property="og:url" content="https://archangel-77.github.io/hutsix-public/vs/sikulix/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-256.png" type="image/png">
+
+<!-- Google Analytics 4 (same property as the homepage) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3YQ71J4XQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('config', 'G-3YQ71J4XQX');
+</script>
+
+<!-- Structured data: FAQ (must match the visible FAQ below) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is SikuliX able to automate anything on screen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It finds visual elements by matching image snippets you provide, and drives keyboard and mouse input from a script. Cross-platform support is one of its strengths." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Hutsix require a script the way SikuliX does?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Triggers and actions are configured in the application and stored in a profile. Hutsix has no scripting language, which is also its main limitation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I run SikuliX scripts on macOS or Linux?",
+      "acceptedAnswer": { "@type": "Answer", "text": "SikuliX is cross-platform. Hutsix is Windows 10 and 11 only." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which is cheaper?",
+      "acceptedAnswer": { "@type": "Answer", "text": "SikuliX is free and open source. Hutsix is a one-time $49 licence with a 7-day trial." }
+    }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#0f172a; color:#e2e8f0; line-height:1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+  header { text-align:center; margin-bottom: 32px; }
+  header h1 { font-size: 2.1rem; color:#fff; letter-spacing:.3px; }
+  header p { color:#94a3b8; margin-top:8px; font-size:1.05rem; }
+  .btn { display:inline-block; background:#22c55e; color:#052e16; font-weight:700;
+         padding:16px 34px; border-radius:10px; text-decoration:none; font-size:1.1rem; margin-top:24px; }
+  .btn.buy { background:#f59e0b; color:#451a03; margin-left:12px; }
+  .note { background:#1e293b; border-left:4px solid #f59e0b; padding:14px 18px; border-radius:8px; color:#cbd5e1; font-size:.95rem; margin:20px 0; }
+  .note.good { border-left-color:#22c55e; }
+  footer { text-align:center; color:#64748b; margin-top:48px; font-size:.85rem; }
+  a { color:#38bdf8; }
+  section h2 { color:#fff; margin:40px 0 12px; font-size:1.5rem; }
+  main ul, main ol { margin:12px 0 0 20px; color:#cbd5e1; }
+  main li { margin-bottom:8px; }
+  main p { color:#cbd5e1; margin-top:12px; }
+  code { background:#1e293b; padding:2px 6px; border-radius:4px; font-size:.9em; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.92rem; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #334155; vertical-align:top; }
+  th { color:#fff; background:#1e293b; font-weight:600; }
+  td:first-child { color:#fff; width:38%; }
+  tr td:nth-child(2) { color:#94a3b8; }
+  .faq { margin-top:48px; }
+  .faq h2 { color:#fff; margin-bottom:16px; }
+  .faq details { background:#1e293b; border:1px solid #334155; border-radius:10px; padding:14px 18px; margin-bottom:10px; }
+  .faq summary { color:#fff; font-weight:600; cursor:pointer; }
+  .faq p { color:#94a3b8; margin-top:8px; font-size:.95rem; }
+  .crumb { font-size:.85rem; color:#64748b; margin-bottom:20px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="crumb"><a href="/hutsix-public/">← Hutsix home</a></p>
+
+  <header>
+    <h1>Hutsix vs SikuliX</h1>
+    <p>Scripted image automation versus a packaged GUI tool</p>
+  </header>
+
+  <div class="note good">
+    <strong>Short answer:</strong> both tools automate by looking at the screen, but they start from opposite ends. <strong>SikuliX is free, open source and cross-platform, and you write scripts.</strong> Hutsix is a paid Windows application where triggers and actions are configured instead of written. If you are comfortable scripting in Python or Ruby, SikuliX is a legitimate answer and costs nothing.
+  </div>
+
+  <section>
+    <h2>What each tool actually is</h2>
+    <p><strong>SikuliX</strong> automates graphical interfaces by finding images on screen: you capture a snippet, and the script waits for it, clicks it, types near it, and so on. It runs on Windows, macOS and Linux, and is scripted in Python (Jython) or Ruby. It ships a script editor and a REPL, and is built around visual workflows rather than a fixed set of trigger types.</p>
+    <p><strong>Hutsix</strong> is a Windows-only desktop application. You create a profile, add a trigger, add an action, and bind them. Trigger types are keyboard, mouse, pixel colour, OpenCV template matching, OCR text and a trained AI image model. There is no scripting language; the profile is the program.</p>
+  </section>
+
+  <section>
+    <h2>Direct comparison</h2>
+    <table>
+      <thead><tr><th></th><th>SikuliX</th><th>Hutsix</th></tr></thead>
+      <tbody>
+        <tr><td>Price</td><td>Free</td><td>$49 one-time, 7-day trial</td></tr>
+        <tr><td>Licence</td><td>Open source</td><td>Proprietary</td></tr>
+        <tr><td>Platforms</td><td>Windows, macOS, Linux</td><td>Windows 10/11 only</td></tr>
+        <tr><td>How you build automation</td><td>Scripts in Python or Ruby</td><td>Configured triggers and actions</td></tr>
+        <tr><td>Image matching</td><td>Core feature of the API</td><td>Native trigger with a calibrator</td></tr>
+        <tr><td>Text recognition (OCR)</td><td>Through its OCR integration</td><td>Native OCR text trigger</td></tr>
+        <tr><td>Trained AI object detection</td><td>Not part of the documented feature set</td><td>Built in — train on your own screenshots</td></tr>
+        <tr><td>Cooldowns, focus guard, live monitor</td><td>Written into the script</td><td>Settings in the app</td></tr>
+        <tr><td>Install and update</td><td>You manage the runtime and libraries</td><td>Packaged installer and auto-update</td></tr>
+        <tr><td>Arbitrary logic</td><td>Any logic you can write</td><td>Only what the trigger and action model offers</td></tr>
+      </tbody>
+    </table>
+    <p><small>Feature comparison current as of October 2026, based on each product's public documentation. If something here is out of date, tell us and we will correct it.</small></p>
+  </section>
+
+  <section>
+    <h2>Where SikuliX genuinely wins</h2>
+    <ul>
+      <li><strong>It is free and open source.</strong> Nothing to license, and you can read every line.</li>
+      <li><strong>It runs on macOS and Linux too.</strong> Hutsix is Windows-only, full stop.</li>
+      <li><strong>Unlimited logic.</strong> Loops, functions, data structures, external libraries — the full expressiveness of a scripting language.</li>
+      <li><strong>Mature visual API.</strong> Years of work on matching, waiting and tolerating minor visual variation.</li>
+      <li><strong>No vendor dependency.</strong> No activation, no account, no update channel you do not control.</li>
+    </ul>
+    <p>If your automation is a task you can describe as a script, SikuliX will do it and cost nothing. That is a genuinely better deal than paying for a tool with fewer capabilities.</p>
+  </section>
+
+  <section>
+    <h2>Where a packaged tool earns its price</h2>
+    <p>The trade is not capability, it is upkeep. A SikuliX script is software: someone has to set up the runtime, manage the image library, tune the waits, and keep it working when a dialog moves. That is fine when the script is yours.</p>
+    <p>What Hutsix moves out of your code and into settings:</p>
+    <ul>
+      <li><strong>No scripting needed</strong> — a trigger and an action, bound together in a profile.</li>
+      <li><strong>One capture per check</strong> shared by every binding watching that monitor, reading only the watched region.</li>
+      <li><strong>Stale-frame protection</strong> — a frame older than the trigger's interval is discarded, so a fast trigger cannot act on an old picture.</li>
+      <li><strong>Focus guard and per-binding cooldown</strong>, so an action does not fire into the wrong window or repeat out of control.</li>
+      <li><strong>Action Monitor</strong> showing fired, pending and skipped rows, with the reason.</li>
+      <li><strong>A trained AI model as a trigger</strong>, without building an inference pipeline.</li>
+      <li><strong>Portable profiles</strong> you can export and hand to someone else.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Who should use which</h2>
+    <p><strong>Use SikuliX if:</strong> you script comfortably, you need macOS or Linux, you want zero cost, your automation is a bespoke task, or you want full control of the implementation.</p>
+    <p><strong>Use Hutsix if:</strong> you are on Windows and do not want to maintain a script, your trigger is visual (a colour, an icon, specific text), you need OCR or trained image detection as a trigger, or you want to hand a configured profile to someone who does not code.</p>
+    <p><strong>Use neither</strong> if the software you are automating prohibits it. Automation can get accounts restricted; that risk belongs to whoever runs it.</p>
+  </section>
+
+  <section>
+    <h2>Hutsix limitations, stated up front</h2>
+    <ul>
+      <li>Windows 10/11 only.</li>
+      <li>Proprietary and paid — no free tier beyond the 7-day trial.</li>
+      <li>No scripting language: logic outside the trigger and action model is impossible.</li>
+      <li>Administrator rights to install; internet for first activation, with an offline grace period afterwards.</li>
+      <li>Not yet signed with a commercial certificate, so SmartScreen may warn on first run.</li>
+    </ul>
+  </section>
+
+  <section class="faq">
+    <h2>FAQ</h2>
+    <details><summary>Is SikuliX able to automate anything on screen?</summary><p>It finds visual elements by matching image snippets you provide, and drives keyboard and mouse input from a script. Cross-platform support is one of its strengths.</p></details>
+    <details><summary>Does Hutsix require a script the way SikuliX does?</summary><p>No. Triggers and actions are configured in the application and stored in a profile. Hutsix has no scripting language, which is also its main limitation.</p></details>
+    <details><summary>Can I run SikuliX scripts on macOS or Linux?</summary><p>SikuliX is cross-platform. Hutsix is Windows 10 and 11 only.</p></details>
+    <details><summary>Which is cheaper?</summary><p>SikuliX is free and open source. Hutsix is a one-time $49 licence with a 7-day trial.</p></details>
+    <details><summary>Can I convert a SikuliX script into a Hutsix profile?</summary><p>Not automatically. Common patterns — wait for an image, then click or press a key — map directly onto a binding, so a short script can usually be rebuilt in minutes.</p></details>
+  </section>
+
+  <section>
+    <h2>Try it on your own workflow</h2>
+    <p>If your task begins with "when this appears on screen", build that one binding in Hutsix and compare it with the script you would have written. If the script is simpler, keep the script.</p>
+    <p>
+      <a class="btn" href="https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download">⬇ Download Free Trial</a>
+      <a class="btn buy" href="https://panpanageas.gumroad.com/l/rrstan?code=HUTALT">Buy License — $49</a>
+    </p>
+  </section>
+
+  <footer>
+    Hutsix — Windows 10/11 (64-bit) · <a href="/hutsix-public/">Home</a> · <a href="https://github.com/Archangel-77/hutsix-public/releases">Releases</a> · <a href="https://www.youtube.com/@Hutsix">YouTube</a>
+    <br>Comparison last reviewed 2026-10-25.
+  </footer>
+
+</main>
+</body>
+</html>
