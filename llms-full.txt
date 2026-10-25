@@ -1,13 +1,13 @@
-# Hutsix — Windows Automation Toolkit
+# Hutsix â€” Windows Automation Toolkit
 
 Hutsix is a Windows automation toolkit with keyboard macros, OCR and image screen triggers, and trained AI image triggers. Free 7-day trial, then a one-time $49 USD license, for Windows 10/11.
 
 ## What Hutsix does
 
-- Keyboard Macros — Map and fire keyboard actions from global hotkeys.
-- OCR & Image Triggers — Detect on-screen text and visual patterns you define.
-- Trained AI Triggers — Train a detection model on your own screenshots and use it as a trigger; template matching with a calibrator covers simpler cases.
-- Profiles — Switchable profiles with foreground-window detection.
+- Keyboard Macros â€” Map and fire keyboard actions from global hotkeys.
+- OCR & Image Triggers â€” Detect on-screen text and visual patterns you define.
+- Trained AI Triggers â€” Train a detection model on your own screenshots and use it as a trigger; template matching with a calibrator covers simpler cases.
+- Profiles â€” Switchable profiles with foreground-window detection.
 
 Free 7-day trial with the full feature set, no card required. After it ends, a license is a one-time $49 USD with no subscription; the trial cannot be reset by reinstalling.
 
@@ -51,7 +51,7 @@ Q: Is Hutsix free?
 A: Hutsix has a free 7-day trial with the full feature set. After it ends, a license is a one-time $49 USD - there is no subscription.
 
 Q: Does Hutsix work with Windows 11?
-A: Yes — Hutsix supports Windows 10 and Windows 11, 64-bit.
+A: Yes â€” Hutsix supports Windows 10 and Windows 11, 64-bit.
 
 Q: Can the Hutsix trial be reset by reinstalling?
 A: No. The trial is anchored on your machine and cannot be reset by reinstalling the app.
@@ -78,7 +78,7 @@ A: Yes. Some apps and services prohibit automation. Users are responsible for ho
 - Comparison: Hutsix vs GS Auto Clicker: https://archangel-77.github.io/hutsix-public/vs/gs-auto-clicker/
 - Buy License: https://panpanageas.gumroad.com/l/rrstan
 - Releases: https://github.com/Archangel-77/hutsix-public/releases
-- Discord: https://discord.gg/Sr5WUmeY
+- Discord: https://discord.gg/4FXEknCxrq
 - YouTube: https://www.youtube.com/@Hutsix
 
-Hutsix v3.2.0 — Windows 10/11 (64-bit)
+Hutsix v3.2.0 â€” Windows 10/11 (64-bit)

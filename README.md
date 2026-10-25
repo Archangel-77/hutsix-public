@@ -14,7 +14,7 @@ This repository is the public showcase for the project.
 
 | Download | Community |
 |---|---|
-| [Get Hutsix on Gumroad](https://panpanageas.gumroad.com/l/rrstan) | [Join Hutsix Discord](https://discord.gg/Sr5WUmeY) |
+| [Get Hutsix on Gumroad](https://panpanageas.gumroad.com/l/rrstan) | [Join Hutsix Discord](https://discord.gg/4FXEknCxrq) |
 
 ## Table of Contents
 
@@ -64,13 +64,13 @@ Hutsix solves this by combining reliable trigger detection (hotkeys, pixels, ima
 
 | Feature | Hutsix | AutoHotkey | Pulover | MaCRO |
 |---------|--------|-----------|---------|-------|
-| Visual Profile System | ✅ | ❌ | ❌ | ⚠️ |
-| Pixel/Image/OCR Triggers | ✅ | ⚠️ Limited | ❌ | ❌ |
-| CUDA GPU Acceleration | ✅ | ❌ | ❌ | ❌ |
-| Diagnostics Per Binding | ✅ | ❌ | ❌ | ⚠️ |
-| No Coding Required | ✅ | ❌ | ✅ | ✅ |
-| Cross-Platform | ❌ | ❌ | ❌ | ❌ |
-| Free Forever | ❌ | ✅ | ✅ | ⚠️ |
+| Visual Profile System | âœ… | âŒ | âŒ | âš ï¸ |
+| Pixel/Image/OCR Triggers | âœ… | âš ï¸ Limited | âŒ | âŒ |
+| CUDA GPU Acceleration | âœ… | âŒ | âŒ | âŒ |
+| Diagnostics Per Binding | âœ… | âŒ | âŒ | âš ï¸ |
+| No Coding Required | âœ… | âŒ | âœ… | âœ… |
+| Cross-Platform | âŒ | âŒ | âŒ | âŒ |
+| Free Forever | âŒ | âœ… | âœ… | âš ï¸ |
 
 **Hutsix is for:** Power users, QA/testers, and content creators who need advanced automation with visual debugging and GPU acceleration.
 
@@ -127,7 +127,7 @@ When a profile is active, a watchdog engine continuously evaluates bindings and 
 - Managing buffs and ability rotations
 - Timing-sensitive input sequences
 
-Have a use case? Share it in our Discord: https://discord.gg/Sr5WUmeY
+Have a use case? Share it in our Discord: https://discord.gg/4FXEknCxrq
 
 ## Architecture Overview
 
@@ -331,9 +331,9 @@ Actively developed. Ongoing work focuses on reliability, diagnostics, UX, and fe
 Current: **v3.2.0** (October 24, 2026)
 
 Download (recommended): [Hutsix on Gumroad](https://panpanageas.gumroad.com/l/rrstan)
-- 🪟 Windows MSI Installer: [Hutsix-x64.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/Hutsix-x64.msi)
+- ðŸªŸ Windows MSI Installer: [Hutsix-x64.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/Hutsix-x64.msi)
 
-📋 [Full Changelog](https://github.com/Archangel-77/hutsix-public/releases)
+ðŸ“‹ [Full Changelog](https://github.com/Archangel-77/hutsix-public/releases)
 
 ## Contributing
 
@@ -342,7 +342,7 @@ Code contributions are not open in this repository.
 
 Feedback, bug reports, and feature suggestions are welcome through:
 
-- Discord: [https://discord.gg/Sr5WUmeY](https://discord.gg/Sr5WUmeY)
+- Discord: [https://discord.gg/4FXEknCxrq](https://discord.gg/4FXEknCxrq)
 - YouTube: [https://www.youtube.com/@Hutsix](https://www.youtube.com/@Hutsix)
 
 ## Credits
@@ -358,6 +358,6 @@ Built with major third-party technologies including:
 
 ## License
 
-Hutsix is proprietary software © 2025–2026 Panagiotis Panageas.
+Hutsix is proprietary software Â© 2025â€“2026 Panagiotis Panageas.
 Redistribution or modification is not permitted without written permission, except where required by third-party licenses.
 See `LICENSE` and `THIRD_PARTY_LICENSES.md` in the main project repository for full terms.
