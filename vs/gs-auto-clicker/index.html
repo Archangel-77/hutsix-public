@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Primary SEO -->
+<title>Hutsix vs GS Auto Clicker — Timer Clicks vs Screen-Aware Automation</title>
+<meta name="description" content="When a free auto clicker is all you need, and when you need conditional clicking that waits for a pixel, an image or OCR text on Windows. Honest comparison.">
+<link rel="canonical" href="https://archangel-77.github.io/hutsix-public/vs/gs-auto-clicker/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hutsix">
+<meta property="og:title" content="Hutsix vs GS Auto Clicker — Timer Clicks vs Screen-Aware Automation">
+<meta property="og:description" content="Interval clicking vs conditional clicking. Which one your automation problem actually needs.">
+<meta property="og:url" content="https://archangel-77.github.io/hutsix-public/vs/gs-auto-clicker/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-256.png" type="image/png">
+
+<!-- Google Analytics 4 (same property as the homepage) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3YQ71J4XQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('config', 'G-3YQ71J4XQX');
+</script>
+
+<!-- Structured data: FAQ (must match the visible FAQ below) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Hutsix click at a fixed interval like GS Auto Clicker?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Only indirectly. An action can repeat on a fixed interval, but repeat runs while a trigger is active. There is no timer-only trigger, so blind interval clicking is better served by GS Auto Clicker." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free alternative to Hutsix for conditional clicking?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AutoHotkey can do conditional clicking if you write a script using PixelSearch or ImageSearch. It is free, and a legitimate answer if you are comfortable scripting." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does GS Auto Clicker detect images or pixel colours?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Its documented feature set is interval and position based clicking with hotkey control. Screen-content detection is not part of it." }
+    },
+    {
+      "@type": "Question",
+      "name": "Will a conditional trigger work on any application?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Technically it reads the screen, so it works with anything visible. Whether you may automate that application is a separate question answered by its terms of service." }
+    }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#0f172a; color:#e2e8f0; line-height:1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+  header { text-align:center; margin-bottom: 32px; }
+  header h1 { font-size: 2.1rem; color:#fff; letter-spacing:.3px; }
+  header p { color:#94a3b8; margin-top:8px; font-size:1.05rem; }
+  .btn { display:inline-block; background:#22c55e; color:#052e16; font-weight:700;
+         padding:16px 34px; border-radius:10px; text-decoration:none; font-size:1.1rem; margin-top:24px; }
+  .btn.buy { background:#f59e0b; color:#451a03; margin-left:12px; }
+  .note { background:#1e293b; border-left:4px solid #f59e0b; padding:14px 18px; border-radius:8px; color:#cbd5e1; font-size:.95rem; margin:20px 0; }
+  .note.good { border-left-color:#22c55e; }
+  footer { text-align:center; color:#64748b; margin-top:48px; font-size:.85rem; }
+  a { color:#38bdf8; }
+  section h2 { color:#fff; margin:40px 0 12px; font-size:1.5rem; }
+  main ul, main ol { margin:12px 0 0 20px; color:#cbd5e1; }
+  main li { margin-bottom:8px; }
+  main p { color:#cbd5e1; margin-top:12px; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.92rem; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #334155; vertical-align:top; }
+  th { color:#fff; background:#1e293b; font-weight:600; }
+  td:first-child { color:#fff; width:38%; }
+  tr td:nth-child(2) { color:#94a3b8; }
+  .faq { margin-top:48px; }
+  .faq h2 { color:#fff; margin-bottom:16px; }
+  .faq details { background:#1e293b; border:1px solid #334155; border-radius:10px; padding:14px 18px; margin-bottom:10px; }
+  .faq summary { color:#fff; font-weight:600; cursor:pointer; }
+  .faq p { color:#94a3b8; margin-top:8px; font-size:.95rem; }
+  .crumb { font-size:.85rem; color:#64748b; margin-bottom:20px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="crumb"><a href="/hutsix-public/">← Hutsix home</a></p>
+
+  <header>
+    <h1>Hutsix vs GS Auto Clicker</h1>
+    <p>Timer-based clicking vs screen-aware automation</p>
+  </header>
+
+  <div class="note good">
+    <strong>Short answer:</strong> if you need to click the same spot on a timer, <strong>GS Auto Clicker is free and enough — use it.</strong>
+    Hutsix exists for the case that breaks a timer: the click has to happen <em>when something appears on screen</em>, not on a fixed interval.
+  </div>
+
+  <section>
+    <h2>The difference in one sentence</h2>
+    <p>A simple auto clicker asks <strong>"how often?"</strong>. A screen-aware automation tool asks <strong>"is the thing I am waiting for actually there?"</strong> Those are different problems, and only one of them needs a $49 tool.</p>
+  </section>
+
+  <section>
+    <h2>What each tool actually is</h2>
+    <p><strong>GS Auto Clicker</strong> is a free Windows auto clicker. You set an interval, a cursor position and a repeat count (or unlimited), then start it with a hotkey. It can record mouse positions so a sequence of clicks can be replayed. For "keep clicking this button while I do something else", it does the job with almost no setup and costs nothing.</p>
+    <p><strong>Hutsix</strong> is a trigger/action automation app. Instead of a timer, a trigger decides when to act: a hotkey, a pixel changing colour, a template image appearing, OCR recognising specific text, or an AI model detecting a trained object. The action is keyboard and mouse input. The pairing lives in a profile you can export and share.</p>
+  </section>
+
+  <section>
+    <h2>Direct comparison</h2>
+    <table>
+      <thead><tr><th></th><th>GS Auto Clicker</th><th>Hutsix</th></tr></thead>
+      <tbody>
+        <tr><td>Price</td><td>Free</td><td>$49 one-time, 7-day trial</td></tr>
+        <tr><td>What drives the action</td><td>A timer</td><td>Screen content, hotkeys, or a timer</td></tr>
+        <tr><td>Fixed-interval clicking</td><td>Yes — the whole product</td><td>Indirectly: an action repeats on an interval, but only while a trigger is active. No timer-only trigger</td></tr>
+        <tr><td>Click at recorded positions</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Start/stop hotkey</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Click only when a pixel changes colour</td><td>No</td><td>Yes — single or multi-point, with tolerance</td></tr>
+        <tr><td>Click only when an image appears</td><td>No</td><td>Yes — OpenCV template matching with a calibrator</td></tr>
+        <tr><td>Click only when specific text appears</td><td>No</td><td>Yes — built-in OCR</td></tr>
+        <tr><td>Click only when a trained object is detected</td><td>No</td><td>Yes — AI image trigger</td></tr>
+        <tr><td>Multi-point conditional checks</td><td>No</td><td>Yes — 20+ points in one screen capture</td></tr>
+        <tr><td>Cooldown and de-duplication</td><td>No</td><td>Per-binding cooldown</td></tr>
+        <tr><td>Only act when a specific window is focused</td><td>No</td><td>Focus guard</td></tr>
+        <tr><td>Keyboard actions (typing, combos, sequences)</td><td>Not the focus</td><td>Full keyboard and mouse actions</td></tr>
+        <tr><td>Live monitor of what fired and why</td><td>No</td><td>Action Monitor</td></tr>
+        <tr><td>Exportable, shareable profiles</td><td>No</td><td>Yes, bundled assets included</td></tr>
+        <tr><td>Install size and setup effort</td><td>Tiny, instant</td><td>Larger installer, admin rights, activation</td></tr>
+      </tbody>
+    </table>
+    <p><small>Feature comparison current as of October 2026. If something is out of date, tell us and we will correct it.</small></p>
+  </section>
+
+  <section>
+    <h2>Where GS Auto Clicker genuinely wins</h2>
+    <ul>
+      <li><strong>It is free.</strong> If price matters, this section ends the comparison.</li>
+      <li><strong>It is instant.</strong> Download, set an interval, press a hotkey. Nothing to configure or activate.</li>
+      <li><strong>Nothing phones home.</strong> No licence server, no activation, no account.</li>
+      <li><strong>It is right for most "auto clicker" searches.</strong> Most people searching want interval clicking and nothing more. Paying $49 for that would be a mistake.</li>
+      <li><strong>Its model is simpler for the simplest job.</strong> Hutsix has no timer-only trigger: repeat runs on an interval <em>while a trigger is active</em>. "Click here every 500 ms forever, no matter what" is a GS Auto Clicker task.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Where a timer is the wrong tool</h2>
+    <p>A fixed interval fails in three situations, and they cover almost every real automation problem people write to us about.</p>
+    <ul>
+      <li><strong>The interval is wrong in both directions.</strong> You set 500 ms. Sometimes the thing appears in 300 ms, sometimes in 2 s. Too fast and you click into an empty screen; too slow and you miss the window. A conditional trigger replaces the guess with a fact.</li>
+      <li><strong>The order matters and you cannot see it.</strong> Clicking a button that is not on screen does not fail loudly — it clicks whatever is in that position.</li>
+      <li><strong>Text and objects, not pixels.</strong> "Click when <em>Start</em> appears" or "click when this object is detected" cannot be expressed as a timer at all. That needs OCR or a trained image model — both built-in triggers in Hutsix.</li>
+    </ul>
+    <p>What Hutsix adds around that core:</p>
+    <ul>
+      <li><strong>One capture per check</strong> for everything watching that monitor, and only the watched region is captured.</li>
+      <li><strong>Stale-frame protection</strong> — a frame older than the trigger's own interval is discarded.</li>
+      <li><strong>Focus guard and cooldowns</strong>, so a conditional trigger does not misfire into another window or machine-gun the same action.</li>
+      <li><strong>Action Monitor</strong> showing fired, pending and skipped rows, including why something was skipped.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Who should use which</h2>
+    <p><strong>Use GS Auto Clicker if:</strong> the click goes to the same place on a predictable schedule; you want a free, zero-setup tool; you do not need to know what is on screen.</p>
+    <p><strong>Use Hutsix if:</strong> the action depends on what is on screen; you need OCR or object detection as the trigger; you want keyboard and mouse actions in one profile; you want a profile you can export and hand to someone else; you want a monitor that explains what fired and what did not.</p>
+    <p><strong>Use neither</strong> if the software's terms prohibit automation. That risk belongs to you, and no tool removes it.</p>
+  </section>
+
+  <section>
+    <h2>Hutsix limitations, stated up front</h2>
+    <ul>
+      <li>Windows 10/11 only, admin rights to install, internet required for activation (with offline grace).</li>
+      <li>Proprietary and paid; the only free access is the 7-day trial.</li>
+      <li>The installer is not yet signed with a commercial certificate, so SmartScreen may warn on first run. A tiny, long-established free tool rarely triggers this.</li>
+      <li>Overkill for pure interval clicking — that is the honest case for staying with the free tool.</li>
+      <li>No scripting language: if your logic does not fit the trigger/action model, it will not fit.</li>
+    </ul>
+  </section>
+
+  <section class="faq">
+    <h2>FAQ</h2>
+    <details><summary>Can Hutsix click at a fixed interval like GS Auto Clicker?</summary><p>Only indirectly. An action can repeat on a fixed interval, but repeat runs <em>while a trigger is active</em> (a held key, a matching pixel, a detected image). There is no timer-only trigger, so "click this spot every 500 ms regardless" is genuinely better served by GS Auto Clicker.</p></details>
+    <details><summary>Is there a free alternative to Hutsix for conditional clicking?</summary><p>AutoHotkey can do conditional clicking if you write a script using <code>PixelSearch</code> or <code>ImageSearch</code>. It is free, and a legitimate answer if you are comfortable scripting — see our <a href="/hutsix-public/vs/autohotkey/">AutoHotkey comparison</a>.</p></details>
+    <details><summary>Does GS Auto Clicker detect images or pixel colours?</summary><p>Its documented feature set is interval and position based clicking with hotkey control. Screen-content detection is not part of it.</p></details>
+    <details><summary>Will a conditional trigger work on any application?</summary><p>Technically it reads the screen, so it works with anything visible. Whether you <em>may</em> automate that application is a separate question answered by its terms of service.</p></details>
+    <details><summary>Which is faster to set up?</summary><p>GS Auto Clicker, by a wide margin. Hutsix trades setup time for the ability to wait for a real condition.</p></details>
+  </section>
+
+  <section>
+    <h2>Try the case a timer cannot handle</h2>
+    <p>Build one conditional binding — a pixel, an image, or an OCR string — and see whether it replaces the timing guesswork. 7-day free trial, no card required; $49 one-time if you keep it.</p>
+    <p>
+      <a class="btn" href="https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download">⬇ Download Free Trial</a>
+      <!-- Before publishing: create the Gumroad coupon HUTALT (5% off), then change the Buy link to
+           https://panpanageas.gumroad.com/l/rrstan?code=HUTALT so sales from this page are attributable. -->
+      <a class="btn buy" href="https://panpanageas.gumroad.com/l/rrstan">Buy License — $49</a>
+    </p>
+  </section>
+
+  <footer>
+    Hutsix — Windows 10/11 (64-bit) · <a href="/hutsix-public/">Home</a> · <a href="https://github.com/Archangel-77/hutsix-public/releases">Releases</a> · <a href="https://www.youtube.com/@Hutsix">YouTube</a>
+    <br>Comparison last reviewed 2026-10-25.
+  </footer>
+
+</main>
+</body>
+</html>

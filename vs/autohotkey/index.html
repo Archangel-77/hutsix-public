@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Primary SEO -->
+<title>Hutsix vs AutoHotkey — Which Windows Automation Tool Fits You?</title>
+<meta name="description" content="A fair comparison of Hutsix and AutoHotkey for Windows automation: scripting power vs no-code pixel, image and OCR triggers. Includes when AutoHotkey is the better choice.">
+<link rel="canonical" href="https://archangel-77.github.io/hutsix-public/vs/autohotkey/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hutsix">
+<meta property="og:title" content="Hutsix vs AutoHotkey — Which Windows Automation Tool Fits You?">
+<meta property="og:description" content="Scripting power vs no-code visual triggers. A comparison that names where AutoHotkey wins.">
+<meta property="og:url" content="https://archangel-77.github.io/hutsix-public/vs/autohotkey/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-256.png" type="image/png">
+
+<!-- Google Analytics 4 (same property as the homepage) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3YQ71J4XQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('config', 'G-3YQ71J4XQX');
+</script>
+
+<!-- Structured data: FAQ (must match the visible FAQ below) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Hutsix replace AutoHotkey?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For keyboard remapping and text expansion, no. For reacting to what is on screen without writing code, that is what it is built for." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is AutoHotkey able to do pixel and image detection?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. PixelSearch, PixelGetColor and ImageSearch are built into the language. The difference is that Hutsix exposes them as configured triggers with capture timing, tolerance, cooldowns and a live monitor rather than as commands you assemble yourself." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AutoHotkey support OCR?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not as a built-in command; it is done through external libraries or by calling another OCR engine. Hutsix has a native OCR text trigger." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import AutoHotkey scripts into Hutsix?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. They are different models: scripts versus profiles. Simple hotkey sequences can be rebuilt as bindings in a few minutes." }
+    }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#0f172a; color:#e2e8f0; line-height:1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+  header { text-align:center; margin-bottom: 32px; }
+  header h1 { font-size: 2.1rem; color:#fff; letter-spacing:.3px; }
+  header p { color:#94a3b8; margin-top:8px; font-size:1.05rem; }
+  .btn { display:inline-block; background:#22c55e; color:#052e16; font-weight:700;
+         padding:16px 34px; border-radius:10px; text-decoration:none; font-size:1.1rem; margin-top:24px; }
+  .btn.buy { background:#f59e0b; color:#451a03; margin-left:12px; }
+  .note { background:#1e293b; border-left:4px solid #f59e0b; padding:14px 18px; border-radius:8px; color:#cbd5e1; font-size:.95rem; margin:20px 0; }
+  .note.good { border-left-color:#22c55e; }
+  footer { text-align:center; color:#64748b; margin-top:48px; font-size:.85rem; }
+  a { color:#38bdf8; }
+  section h2 { color:#fff; margin:40px 0 12px; font-size:1.5rem; }
+  main ul, main ol { margin:12px 0 0 20px; color:#cbd5e1; }
+  main li { margin-bottom:8px; }
+  main p { color:#cbd5e1; margin-top:12px; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.92rem; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #334155; vertical-align:top; }
+  th { color:#fff; background:#1e293b; font-weight:600; }
+  td:first-child { color:#fff; width:38%; }
+  tr td:nth-child(2) { color:#94a3b8; }
+  .faq { margin-top:48px; }
+  .faq h2 { color:#fff; margin-bottom:16px; }
+  .faq details { background:#1e293b; border:1px solid #334155; border-radius:10px; padding:14px 18px; margin-bottom:10px; }
+  .faq summary { color:#fff; font-weight:600; cursor:pointer; }
+  .faq p { color:#94a3b8; margin-top:8px; font-size:.95rem; }
+  .crumb { font-size:.85rem; color:#64748b; margin-bottom:20px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="crumb"><a href="/hutsix-public/">← Hutsix home</a></p>
+
+  <header>
+    <h1>Hutsix vs AutoHotkey</h1>
+    <p>Which Windows automation tool fits you?</p>
+  </header>
+
+  <div class="note good">
+    <strong>Short answer:</strong> if you are comfortable writing code, <strong>AutoHotkey is free, more powerful, and probably the right answer.</strong>
+    If you want no-code triggers that react to what is <em>on screen</em> — pixel colour, an image, recognised text — inside a GUI you install and run, that is the gap Hutsix fills.
+  </div>
+
+  <p>Most "X vs Y" pages are written to make the author's product win. This one names a clear winner in the cases where it loses.</p>
+
+  <section>
+    <h2>What each tool actually is</h2>
+    <p><strong>AutoHotkey</strong> is a free, open-source (GPL) scripting language for Windows with a large community and two decades of library work. You write a script; it runs hotkeys, hotstrings, remapping, window and control automation. It also has built-in screen-reading commands — <code>PixelGetColor</code>, <code>PixelSearch</code> and <code>ImageSearch</code> — so anything you can express in code, you can automate.</p>
+    <p><strong>Hutsix</strong> is a proprietary Windows desktop application ($49 one-time, 7-day free trial). You do not write code. You create a profile, add a trigger, add an action, and bind them. Trigger types are keyboard, mouse, pixel colour (single or multi-point, with tolerance), template matching (OpenCV), OCR text, and an AI image trigger driven by a model trained on your own screenshots.</p>
+  </section>
+
+  <section>
+    <h2>Direct comparison</h2>
+    <table>
+      <thead><tr><th></th><th>AutoHotkey</th><th>Hutsix</th></tr></thead>
+      <tbody>
+        <tr><td>Price</td><td>Free</td><td>$49 one-time, 7-day trial</td></tr>
+        <tr><td>Licence</td><td>Open source (GPL)</td><td>Proprietary</td></tr>
+        <tr><td>Style</td><td>Scripting language</td><td>GUI application</td></tr>
+        <tr><td>Learning curve</td><td>Requires writing and debugging code</td><td>Point-and-click configuration</td></tr>
+        <tr><td>Hotkeys and key remapping</td><td>Excellent — the core strength</td><td>Supported</td></tr>
+        <tr><td>Keyboard/mouse macros (record and playback)</td><td>Via script</td><td>Built in</td></tr>
+        <tr><td>Pixel colour detection</td><td><code>PixelSearch</code> / <code>PixelGetColor</code> in script</td><td>Native trigger, single or multi-point, with tolerance</td></tr>
+        <tr><td>Template (image) matching</td><td><code>ImageSearch</code> in script</td><td>Native trigger with a calibrator; GPU used for large regions</td></tr>
+        <tr><td>OCR (text on screen)</td><td>Not built in — external library or Tesseract</td><td>Native OCR text trigger</td></tr>
+        <tr><td>AI image detection</td><td>Not built in</td><td>Native — train a model on your screenshots, run it as a trigger</td></tr>
+        <tr><td>Multi-monitor and HDR capture</td><td>Managed in code</td><td>Handled by the capture engine</td></tr>
+        <tr><td>Per-binding cooldown, focus guard</td><td>You implement it</td><td>Built in</td></tr>
+        <tr><td>Live action monitor / diagnostics</td><td>You add logging</td><td>Built in</td></tr>
+        <tr><td>Installer, updater, support</td><td>Community forum</td><td>Packaged MSI, auto-update, support channel</td></tr>
+      </tbody>
+    </table>
+    <p><small>Feature comparison current as of October 2026, based on each product's public documentation. If something is out of date, tell us and we will correct it.</small></p>
+  </section>
+
+  <section>
+    <h2>Where AutoHotkey genuinely wins</h2>
+    <ul>
+      <li><strong>It is free.</strong> If your budget is zero, stop reading and use AutoHotkey.</li>
+      <li><strong>It is more powerful.</strong> Any logic you can write, you can run. Hutsix only offers what is in its trigger and action lists.</li>
+      <li><strong>Better for pure keyboard work.</strong> Remapping, hotstrings, text expansion, window management — AutoHotkey is the best tool in the category and it is not close.</li>
+      <li><strong>No licensing, no activation, no account.</strong></li>
+      <li><strong>You own the code</strong> — readable, auditable, portable.</li>
+    </ul>
+    <p>If your task is "when I press Ctrl+Alt+F, focus that window and paste this text", AutoHotkey does it in two lines and Hutsix is the wrong tool.</p>
+  </section>
+
+  <section>
+    <h2>Where Hutsix is the better fit</h2>
+    <p>The difference is <strong>what starts the action</strong>. AutoHotkey's screen-reading commands are predicates you call from code, and the surrounding work — capture timing, region selection, tolerance, checking intervals, cooldowns, false positives, multi-monitor coordinate maths — is yours to build and tune.</p>
+    <p>In Hutsix that surrounding work is the product:</p>
+    <ul>
+      <li><strong>Visual triggers are first-class.</strong> Pixel, template, OCR and AI-image triggers are configured in a dialog with a preview, not implemented as a check inside a loop.</li>
+      <li><strong>OCR is built in.</strong> "Run this action when the words <em>Ready</em> appear in this corner" is a trigger, not a library dependency.</li>
+      <li><strong>AI detection is built in.</strong> Capture sample screenshots, train a model, use it as a trigger — no Python, no training script, no inference plumbing.</li>
+      <li><strong>It is fast by design.</strong> Screen triggers watching the same monitor share one capture per check, and only the region they watch is captured. Multi-point checks are sub-millisecond because 20 points are 20 lookups in one frame, not 20 captures.</li>
+      <li><strong>It survives the boring failure modes.</strong> A frame older than the trigger interval is discarded, so a fast trigger cannot act on a stale picture. Focus guard stops actions firing into the wrong window. Per-binding cooldowns stop machine-gun repeats.</li>
+      <li><strong>You can see what happened.</strong> Action Monitor lists what fired, what was skipped and why.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Who should use which</h2>
+    <p><strong>Use AutoHotkey if:</strong> you write code or are willing to learn; your automation is keyboard, text or window centric; you want zero cost; you need logic Hutsix does not offer; you want full control of your own machine.</p>
+    <p><strong>Use Hutsix if:</strong> your trigger is visual (a colour changes, an icon appears, specific text shows up); you do not want to maintain a script; you need OCR or trained image detection without building an inference pipeline; you want to hand a configured profile to someone else and have it run; you want install, update and support to be someone else's problem.</p>
+    <p><strong>Use neither</strong> if automating the software in question is prohibited by its terms. Automation can get accounts restricted or banned; that risk is yours.</p>
+  </section>
+
+  <section>
+    <h2>Hutsix limitations, stated up front</h2>
+    <ul>
+      <li>Windows 10/11 only.</li>
+      <li>Proprietary and paid — the only free access is the 7-day trial.</li>
+      <li>No scripting language. If you need arbitrary logic, you will find it restrictive.</li>
+      <li>The installer needs administrator rights, and activation needs an internet connection (with an offline grace period).</li>
+      <li>The installer is not yet signed with a commercial certificate, so Windows SmartScreen may warn on first run.</li>
+      <li>You cannot read or modify its source.</li>
+    </ul>
+  </section>
+
+  <section class="faq">
+    <h2>FAQ</h2>
+    <details><summary>Can Hutsix replace AutoHotkey?</summary><p>For keyboard remapping and text expansion, no. For reacting to what is on screen without writing code, that is what it is built for.</p></details>
+    <details><summary>Is AutoHotkey able to do pixel and image detection?</summary><p>Yes — <code>PixelSearch</code>, <code>PixelGetColor</code> and <code>ImageSearch</code> are built into the language. The difference is that Hutsix exposes them as configured triggers with capture timing, tolerance, cooldowns and a live monitor, rather than commands you assemble yourself.</p></details>
+    <details><summary>Does AutoHotkey support OCR?</summary><p>Not as a built-in command; it is done through external libraries or by calling another OCR engine. If OCR is your core requirement, that integration work is yours in AutoHotkey and built in with Hutsix.</p></details>
+    <details><summary>Can I import my AutoHotkey scripts into Hutsix?</summary><p>No. They are different models — scripts versus profiles. Simple hotkey sequences can be rebuilt as bindings in a few minutes.</p></details>
+    <details><summary>Which is faster?</summary><p>Both can respond within milliseconds. Any comparison you cannot reproduce on your own machine is not worth trusting — take the trial and measure your own case.</p></details>
+  </section>
+
+  <section>
+    <h2>Try it against your own workflow</h2>
+    <p>Hutsix is $49 one-time with a 7-day free trial, no card required. Build one binding that would normally need a script; if AutoHotkey is the better answer for your task, keep AutoHotkey.</p>
+    <p>
+      <a class="btn" href="https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download">⬇ Download Free Trial</a>
+      <!-- Before publishing: create the Gumroad coupon HUTALT (5% off), then change the Buy link to
+           https://panpanageas.gumroad.com/l/rrstan?code=HUTALT so sales from this page are attributable. -->
+      <a class="btn buy" href="https://panpanageas.gumroad.com/l/rrstan">Buy License — $49</a>
+    </p>
+  </section>
+
+  <footer>
+    Hutsix — Windows 10/11 (64-bit) · <a href="/hutsix-public/">Home</a> · <a href="https://github.com/Archangel-77/hutsix-public/releases">Releases</a> · <a href="https://www.youtube.com/@Hutsix">YouTube</a>
+    <br>Comparison last reviewed 2026-10-25.
+  </footer>
+
+</main>
+</body>
+</html>
