@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Primary SEO -->
+<title>How to Trigger an Action When a Pixel Changes Colour (Windows)</title>
+<meta name="description" content="Pixel trigger automation on Windows: capturing points, Match vs Not-Match, the four comparison modes, tolerance values, and the fixes for missed or false triggers.">
+<link rel="canonical" href="https://archangel-77.github.io/hutsix-public/how-to/pixel-trigger-windows/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hutsix">
+<meta property="og:title" content="How to Trigger an Action When a Pixel Changes Colour (Windows)">
+<meta property="og:description" content="Capturing points, Match vs Not-Match, comparison modes, tolerance values and the usual fixes.">
+<meta property="og:url" content="https://archangel-77.github.io/hutsix-public/how-to/pixel-trigger-windows/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-256.png" type="image/png">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3YQ71J4XQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('config', 'G-3YQ71J4XQX');
+</script>
+
+<!-- Structured data: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Trigger an action when a pixel changes colour on Windows",
+  "description": "Capture a screen pixel, choose a comparison mode and tolerance, bind it to an action, and test it.",
+  "totalTime": "PT10M",
+  "tool": [{ "@type": "HowToTool", "name": "Hutsix" }],
+  "step": [
+    { "@type": "HowToStep", "name": "Capture the pixel", "text": "Pick a flat, stable pixel from the UI element you want to watch." },
+    { "@type": "HowToStep", "name": "Choose Match or Not-Match", "text": "Match fires while the colour is present. Not-Match fires when it is gone." },
+    { "@type": "HowToStep", "name": "Choose a comparison mode and tolerance", "text": "RGB by default; Luma, Hue or DeltaE when colour or brightness varies." },
+    { "@type": "HowToStep", "name": "Set a cooldown", "text": "A floor between fires so the action does not repeat out of control." },
+    { "@type": "HowToStep", "name": "Test in Action Monitor", "text": "Confirm the binding fires, and see skipped rows and the reason." }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#0f172a; color:#e2e8f0; line-height:1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+  header { text-align:center; margin-bottom: 32px; }
+  header h1 { font-size: 2rem; color:#fff; letter-spacing:.2px; }
+  header p { color:#94a3b8; margin-top:8px; font-size:1.05rem; }
+  .btn { display:inline-block; background:#22c55e; color:#052e16; font-weight:700;
+         padding:16px 34px; border-radius:10px; text-decoration:none; font-size:1.1rem; margin-top:24px; }
+  .btn.buy { background:#f59e0b; color:#451a03; margin-left:12px; }
+  .note { background:#1e293b; border-left:4px solid #38bdf8; padding:14px 18px; border-radius:8px; color:#cbd5e1; font-size:.95rem; margin:20px 0; }
+  footer { text-align:center; color:#64748b; margin-top:48px; font-size:.85rem; }
+  a { color:#38bdf8; }
+  section h2 { color:#fff; margin:40px 0 12px; font-size:1.4rem; }
+  main ul, main ol { margin:12px 0 0 22px; color:#cbd5e1; }
+  main li { margin-bottom:8px; }
+  main p { color:#cbd5e1; margin-top:12px; }
+  main ol.steps li::marker { font-weight:700; color:#38bdf8; }
+  code { background:#1e293b; padding:2px 6px; border-radius:4px; font-size:.9em; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.92rem; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #334155; vertical-align:top; }
+  th { color:#fff; background:#1e293b; font-weight:600; }
+  td:first-child { color:#fff; width:22%; }
+  tr td:nth-child(2) { color:#94a3b8; }
+  .faq { margin-top:48px; }
+  .faq h2 { color:#fff; margin-bottom:16px; }
+  .faq details { background:#1e293b; border:1px solid #334155; border-radius:10px; padding:14px 18px; margin-bottom:10px; }
+  .faq summary { color:#fff; font-weight:600; cursor:pointer; }
+  .faq p { color:#94a3b8; margin-top:8px; font-size:.95rem; }
+  .crumb { font-size:.85rem; color:#64748b; margin-bottom:20px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="crumb"><a href="/hutsix-public/">← Hutsix home</a></p>
+
+  <header>
+    <h1>Trigger an action when a pixel changes colour</h1>
+    <p>Pixel trigger automation on Windows, including the tolerance settings that decide whether it works</p>
+  </header>
+
+  <div class="note">
+    <strong>What you will build:</strong> a binding that watches one or more screen points and runs a keyboard or mouse action only while their colours satisfy the conditions you set. All conditions in one trigger must pass — it is AND logic, not OR.
+  </div>
+
+  <section>
+    <h2>Before you start</h2>
+    <ul>
+      <li>Windows 10 or 11, 64-bit. Administrator rights to install.</li>
+      <li>A flat, stable area of the UI to watch. Animated edges and glow effects are the main cause of unreliable pixel triggers.</li>
+      <li>Hutsix installed, and a profile you can add a binding to.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Steps</h2>
+    <ol class="steps">
+      <li><strong>Capture the point or points.</strong> Pick pixels from a solid region of the element you care about — the middle of an icon, not its outline. Watching several points in one trigger means all of them must pass before anything fires.</li>
+      <li><strong>Choose Match (<code>=</code>) or Not-Match (<code>≠</code>) per row.</strong> Match fires while the colour is present. Not-Match fires when it is <em>gone</em> — that is the mode for "the loading overlay disappeared" rather than "the warning icon appeared".</li>
+      <li><strong>Pick a comparison mode and tolerance.</strong> Start with RGB at the default <code>24</code>. The table below explains when the others are worth switching to.</li>
+      <li><strong>Set a cooldown on the binding.</strong> Cooldown is the floor between fires. It is the difference between a trigger that reacts and one that spams the same action every check.</li>
+      <li><strong>Save, then test in Action Monitor.</strong> Confirm the binding fires when it should, and check the skipped rows — they tell you why it did not.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Comparison modes and how tolerance behaves</h2>
+    <table>
+      <thead><tr><th>Mode</th><th>What it compares</th><th>Tolerance means</th><th>Use when</th></tr></thead>
+      <tbody>
+        <tr><td>RGB (default)</td><td>Each channel independently</td><td>0–255 per channel</td><td>General colour matching</td></tr>
+        <tr><td>Luma</td><td>Brightness only, hue ignored</td><td>0–255 brightness</td><td>Only intensity matters</td></tr>
+        <tr><td>Hue</td><td>HSV hue angle</td><td>0–180 degrees</td><td>Hue stable, brightness varies</td></tr>
+        <tr><td>DeltaE</td><td>CIE Lab colour difference</td><td>ΔE units — start at 6</td><td>Subtle, perceptually close colours</td></tr>
+      </tbody>
+    </table>
+    <p>In RGB mode each channel must be inside the tolerance independently: a saved red of <code>(200, 50, 50)</code> at tolerance 24 matches anything with R in 176–224, G in 26–74 and B in 26–74. If small shading changes cause misses, raise the tolerance. If the trigger fires on the wrong thing, lower it.</p>
+    <p>Hue mode falls back to brightness comparison for very desaturated pixels, because hue is unstable near grey. That behaviour is deliberate.</p>
+  </section>
+
+  <section>
+    <h2>When it misbehaves</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Usual cause and fix</th></tr></thead>
+      <tbody>
+        <tr><td>Fires too often</td><td>Tolerance too loose, cooldown too low, or the pixel sits on a moving element. Tighten tolerance first.</td></tr>
+        <tr><td>Misses too often</td><td>Tolerance too strict, the point was captured from the wrong spot, or the UI scale or resolution changed since capture. Recapture from a stable area.</td></tr>
+        <tr><td>Inconsistent</td><td>The point sits on dynamic visuals. Move it to flat colour.</td></tr>
+        <tr><td>Differs on an HDR display</td><td>HDR captures are tone-mapped to sRGB internally, but very bright areas can still read differently. Pick a less extreme pixel.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="faq">
+    <h2>FAQ</h2>
+    <details><summary>Should I watch one point or several?</summary><p>One point is easier to keep working. Several points in one trigger gives you a stronger condition — all must pass — which is how you confirm two UI states at once, at the cost of more things that can drift.</p></details>
+    <details><summary>Why does my trigger fire once and then stop?</summary><p>Check the cooldown and whether the condition is still being satisfied. Action Monitor shows skipped rows and the reason, which usually answers this in one look.</p></details>
+    <details><summary>Can it detect text instead of colour?</summary><p>Yes — that is a separate trigger type. See <a href="/hutsix-public/how-to/ocr-trigger/">reading text on screen with an OCR trigger</a>.</p></details>
+    <details><summary>Is pixel automation against the rules of the software I am automating?</summary><p>Possibly. Many applications prohibit automation in their terms, and enforcement can include account restrictions. That responsibility is yours.</p></details>
+  </section>
+
+  <section>
+    <h2>Try it</h2>
+    <p>Free 7-day trial, no card required. Build one pixel binding and watch it in Action Monitor before committing to a whole profile.</p>
+    <p>
+      <a class="btn" href="https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download">⬇ Download Free Trial</a>
+      <a class="btn buy" href="https://panpanageas.gumroad.com/l/rrstan?code=HUTALT">Buy License — $49</a>
+    </p>
+  </section>
+
+  <footer>
+    Hutsix — Windows 10/11 (64-bit) · <a href="/hutsix-public/">Home</a> · <a href="https://github.com/Archangel-77/hutsix-public/releases">Releases</a> · <a href="https://www.youtube.com/@Hutsix">YouTube</a>
+    <br>Last reviewed 2026-10-25.
+  </footer>
+
+</main>
+</body>
+</html>
