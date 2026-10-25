@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Primary SEO -->
+<title>Hutsix vs Pulover's Macro Creator — Recorded Macros vs Screen Triggers</title>
+<meta name="description" content="Pulover's Macro Creator records macros and exports AutoHotkey scripts for free. Hutsix runs triggers from what is on screen. An honest comparison.">
+<link rel="canonical" href="https://archangel-77.github.io/hutsix-public/vs/pulover-macro-creator/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hutsix">
+<meta property="og:title" content="Hutsix vs Pulover's Macro Creator — Recorded Macros vs Screen Triggers">
+<meta property="og:description" content="A free macro recorder that exports AutoHotkey scripts, compared with a packaged Windows app built around screen-conditional triggers.">
+<meta property="og:url" content="https://archangel-77.github.io/hutsix-public/vs/pulover-macro-creator/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-256.png" type="image/png">
+
+<!-- Google Analytics 4 (same property as the homepage) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3YQ71J4XQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('config', 'G-3YQ71J4XQX');
+</script>
+
+<!-- Structured data: FAQ (must match the visible FAQ below) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Pulover's Macro Creator free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, it is free. It is built on AutoHotkey and can export a macro as an AutoHotkey script you can edit." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Pulover's Macro Creator wait for something on screen before acting?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Its command list includes screen-reading commands such as image and pixel search, so a macro can branch on what is on screen. Hutsix makes those conditions the trigger itself, with cooldowns, a focus guard and a live monitor." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Hutsix record my input like a macro recorder?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, Hutsix records keyboard and mouse actions that you then bind to a trigger. The difference is that the trigger decides when the recorded action plays." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which should I use for a simple repeated click?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For simple timer-based clicking, a free macro recorder or auto clicker is the better choice. Hutsix is for actions that depend on what is on screen." }
+    }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#0f172a; color:#e2e8f0; line-height:1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+  header { text-align:center; margin-bottom: 32px; }
+  header h1 { font-size: 2.1rem; color:#fff; letter-spacing:.3px; }
+  header p { color:#94a3b8; margin-top:8px; font-size:1.05rem; }
+  .btn { display:inline-block; background:#22c55e; color:#052e16; font-weight:700;
+         padding:16px 34px; border-radius:10px; text-decoration:none; font-size:1.1rem; margin-top:24px; }
+  .btn.buy { background:#f59e0b; color:#451a03; margin-left:12px; }
+  .note { background:#1e293b; border-left:4px solid #f59e0b; padding:14px 18px; border-radius:8px; color:#cbd5e1; font-size:.95rem; margin:20px 0; }
+  .note.good { border-left-color:#22c55e; }
+  footer { text-align:center; color:#64748b; margin-top:48px; font-size:.85rem; }
+  a { color:#38bdf8; }
+  section h2 { color:#fff; margin:40px 0 12px; font-size:1.5rem; }
+  main ul, main ol { margin:12px 0 0 20px; color:#cbd5e1; }
+  main li { margin-bottom:8px; }
+  main p { color:#cbd5e1; margin-top:12px; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.92rem; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #334155; vertical-align:top; }
+  th { color:#fff; background:#1e293b; font-weight:600; }
+  td:first-child { color:#fff; width:38%; }
+  tr td:nth-child(2) { color:#94a3b8; }
+  .faq { margin-top:48px; }
+  .faq h2 { color:#fff; margin-bottom:16px; }
+  .faq details { background:#1e293b; border:1px solid #334155; border-radius:10px; padding:14px 18px; margin-bottom:10px; }
+  .faq summary { color:#fff; font-weight:600; cursor:pointer; }
+  .faq p { color:#94a3b8; margin-top:8px; font-size:.95rem; }
+  .crumb { font-size:.85rem; color:#64748b; margin-bottom:20px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="crumb"><a href="/hutsix-public/">← Hutsix home</a></p>
+
+  <header>
+    <h1>Hutsix vs Pulover's Macro Creator</h1>
+    <p>Recorded macros versus screen-conditional triggers</p>
+  </header>
+
+  <div class="note good">
+    <strong>Short answer:</strong> if you want to record a sequence once and replay it, or you want a free tool that produces an editable AutoHotkey script, <strong>Pulover's Macro Creator is a good answer and costs nothing</strong>. Hutsix is for the other problem: replaying actions only when something specific appears on screen.
+  </div>
+
+  <section>
+    <h2>What each tool actually is</h2>
+    <p><strong>Pulover's Macro Creator</strong> is a free Windows macro recorder and command builder built on AutoHotkey. You record keyboard and mouse input, arrange commands in a list with loops and conditions, and can export the result as an AutoHotkey script. Its command list includes screen-reading commands, so a macro can branch on what is on screen.</p>
+    <p><strong>Hutsix</strong> is a paid Windows application organised the other way round. A profile holds bindings; each binding pairs a trigger (hotkey, mouse input, pixel colour, template match, OCR text, or a trained AI image model) with an action. You do not write or generate a script — the trigger decides when the recorded action plays.</p>
+  </section>
+
+  <section>
+    <h2>Direct comparison</h2>
+    <table>
+      <thead><tr><th></th><th>Pulover's Macro Creator</th><th>Hutsix</th></tr></thead>
+      <tbody>
+        <tr><td>Price</td><td>Free</td><td>$49 one-time, 7-day trial</td></tr>
+        <tr><td>Platforms</td><td>Windows, built on AutoHotkey</td><td>Windows 10/11 only</td></tr>
+        <tr><td>Record keyboard and mouse input</td><td>Yes, the core of the tool</td><td>Yes</td></tr>
+        <tr><td>Output</td><td>A macro, and optionally an AutoHotkey script</td><td>A profile you can export and share</td></tr>
+        <tr><td>What starts an action</td><td>Play the macro, or a condition inside it</td><td>The trigger bound to it</td></tr>
+        <tr><td>Pixel and image search</td><td>Available as commands in the command list</td><td>First-class trigger types</td></tr>
+        <tr><td>OCR text trigger</td><td>Not part of the documented feature set</td><td>Native</td></tr>
+        <tr><td>Trains an AI image model</td><td>No</td><td>Yes, on your own screenshots</td></tr>
+        <tr><td>Cooldown, focus guard, live monitor</td><td>Built into the macro logic</td><td>Settings in the app</td></tr>
+        <tr><td>Scripts you can edit and own</td><td>Yes, via AutoHotkey export</td><td>No</td></tr>
+      </tbody>
+    </table>
+    <p><small>Feature comparison current as of October 2026, based on each product's public documentation. If something here is out of date, tell us and we will correct it.</small></p>
+  </section>
+
+  <section>
+    <h2>Where Pulover's Macro Creator genuinely wins</h2>
+    <ul>
+      <li><strong>It is free.</strong> There is no version of this comparison where paying is better if free already covers your task.</li>
+      <li><strong>Recording is the focus.</strong> Record a task, replay it — that is the shortest path for a fixed sequence of inputs.</li>
+      <li><strong>It produces code you own.</strong> Exporting to AutoHotkey means the result is editable and portable.</li>
+      <li><strong>Deep command list.</strong> Loops, conditions, window commands and screen-reading commands, all available without paying.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Where the trigger model is different</h2>
+    <p>A recorded macro answers "what should happen next?". A profile of bindings answers "should anything happen at all right now?" That difference matters when the answer depends on the screen:</p>
+    <ul>
+      <li><strong>Cooldowns and de-duplication</strong> are a per-binding setting, not logic you add to the macro.</li>
+      <li><strong>Focus guard</strong> stops an action firing into the wrong window — a failure mode that silent recorded macros hide.</li>
+      <li><strong>One capture per check</strong>, shared by every binding watching that monitor, reading only the watched region.</li>
+      <li><strong>Action Monitor</strong> shows what fired and what was skipped, and why — instead of a macro that simply did nothing.</li>
+      <li><strong>OCR and trained AI detection</strong> as trigger types rather than commands assembled in a list.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Who should use which</h2>
+    <p><strong>Use Pulover's Macro Creator if:</strong> your task is a fixed sequence, you want to edit the resulting script, you are comfortable with AutoHotkey concepts, or cost is the deciding factor.</p>
+    <p><strong>Use Hutsix if:</strong> the action depends on what is on screen, you need OCR or trained image detection, you want per-binding cooldowns and a focus guard without writing logic, or you want to hand a configured profile to someone who does not code.</p>
+    <p><strong>Use neither</strong> if the software you are automating prohibits it. That risk belongs to whoever runs the automation.</p>
+  </section>
+
+  <section>
+    <h2>Hutsix limitations, stated up front</h2>
+    <ul>
+      <li>Windows 10/11 only, and paid — no free tier beyond the 7-day trial.</li>
+      <li>No scripting and no script export. If you want editable code, Hutsix is not the answer.</li>
+      <li>Administrator rights to install; internet for first activation, with offline grace afterwards.</li>
+      <li>Not yet signed with a commercial certificate, so SmartScreen may warn on first run.</li>
+    </ul>
+  </section>
+
+  <section class="faq">
+    <h2>FAQ</h2>
+    <details><summary>Is Pulover's Macro Creator free?</summary><p>Yes. It is built on AutoHotkey and can export a macro as an AutoHotkey script you can edit.</p></details>
+    <details><summary>Can it wait for something on screen before acting?</summary><p>Its command list includes screen-reading commands such as image and pixel search, so a macro can branch on what is on screen. Hutsix makes those conditions the trigger itself, with cooldowns, a focus guard and a live monitor.</p></details>
+    <details><summary>Does Hutsix record my input like a macro recorder?</summary><p>Yes — you record keyboard and mouse actions and bind them to a trigger. The difference is that the trigger decides when the recorded action plays.</p></details>
+    <details><summary>Which should I use for a simple repeated click?</summary><p>For timer-based clicking, a free macro recorder or auto clicker is the better choice. Hutsix is for actions that depend on what is on screen.</p></details>
+  </section>
+
+  <section>
+    <h2>Try the conditional case</h2>
+    <p>If your macro ever fired at the wrong moment, build the same task in Hutsix as a binding and see whether the trigger removes the guesswork. If the recorded macro was already right, keep the macro.</p>
+    <p>
+      <a class="btn" href="https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download">⬇ Download Free Trial</a>
+      <a class="btn buy" href="https://panpanageas.gumroad.com/l/rrstan?code=HUTALT">Buy License — $49</a>
+    </p>
+  </section>
+
+  <footer>
+    Hutsix — Windows 10/11 (64-bit) · <a href="/hutsix-public/">Home</a> · <a href="https://github.com/Archangel-77/hutsix-public/releases">Releases</a> · <a href="https://www.youtube.com/@Hutsix">YouTube</a>
+    <br>Comparison last reviewed 2026-10-25.
+  </footer>
+
+</main>
+</body>
+</html>
