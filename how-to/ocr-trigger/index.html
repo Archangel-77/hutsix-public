@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Primary SEO -->
+<title>Run an Action When Text Appears on Screen (OCR Trigger, Windows)</title>
+<meta name="description" content="How to build an OCR text trigger on Windows: choosing the capture area, query text, confidence threshold, languages and upscale, plus the fixes for missed and false matches.">
+<link rel="canonical" href="https://archangel-77.github.io/hutsix-public/how-to/ocr-trigger/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0f172a">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Hutsix">
+<meta property="og:title" content="Run an Action When Text Appears on Screen (OCR Trigger, Windows)">
+<meta property="og:description" content="Capture area, query text, confidence threshold and the settings that decide whether OCR fires reliably.">
+<meta property="og:url" content="https://archangel-77.github.io/hutsix-public/how-to/ocr-trigger/">
+<meta property="og:image" content="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-banner.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="https://raw.githubusercontent.com/Archangel-77/hutsix-public/main/hut6-256.png" type="image/png">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3YQ71J4XQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('config', 'G-3YQ71J4XQX');
+</script>
+
+<!-- Structured data: HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Run an action when text appears on screen using an OCR trigger",
+  "description": "Capture an area, set the query text and confidence, then bind the text trigger to an action.",
+  "totalTime": "PT10M",
+  "tool": [{ "@type": "HowToTool", "name": "Hutsix" }],
+  "step": [
+    { "@type": "HowToStep", "name": "Enter the query text", "text": "Use short, distinctive text that appears verbatim on screen." },
+    { "@type": "HowToStep", "name": "Capture the area", "text": "Keep the capture tight around the expected text and exclude surrounding clutter." },
+    { "@type": "HowToStep", "name": "Set language and confidence", "text": "Language codes and a minimum confidence, starting around 0.60." },
+    { "@type": "HowToStep", "name": "Adjust preprocessing", "text": "Grayscale is on by default; upscale helps small text." },
+    { "@type": "HowToStep", "name": "Test and calibrate", "text": "Use Action Monitor and auto-calibration to tune confidence and upscale." }
+  ]
+}
+</script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background:#0f172a; color:#e2e8f0; line-height:1.6; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+  header { text-align:center; margin-bottom: 32px; }
+  header h1 { font-size: 2rem; color:#fff; letter-spacing:.2px; }
+  header p { color:#94a3b8; margin-top:8px; font-size:1.05rem; }
+  .btn { display:inline-block; background:#22c55e; color:#052e16; font-weight:700;
+         padding:16px 34px; border-radius:10px; text-decoration:none; font-size:1.1rem; margin-top:24px; }
+  .btn.buy { background:#f59e0b; color:#451a03; margin-left:12px; }
+  .note { background:#1e293b; border-left:4px solid #38bdf8; padding:14px 18px; border-radius:8px; color:#cbd5e1; font-size:.95rem; margin:20px 0; }
+  .warn { border-left-color:#f59e0b; }
+  footer { text-align:center; color:#64748b; margin-top:48px; font-size:.85rem; }
+  a { color:#38bdf8; }
+  section h2 { color:#fff; margin:40px 0 12px; font-size:1.4rem; }
+  main ul, main ol { margin:12px 0 0 22px; color:#cbd5e1; }
+  main li { margin-bottom:8px; }
+  main p { color:#cbd5e1; margin-top:12px; }
+  main ol.steps li::marker { font-weight:700; color:#38bdf8; }
+  code { background:#1e293b; padding:2px 6px; border-radius:4px; font-size:.9em; }
+  table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.92rem; }
+  th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #334155; vertical-align:top; }
+  th { color:#fff; background:#1e293b; font-weight:600; }
+  td:first-child { color:#fff; width:26%; }
+  tr td:nth-child(2) { color:#94a3b8; }
+  .faq { margin-top:48px; }
+  .faq h2 { color:#fff; margin-bottom:16px; }
+  .faq details { background:#1e293b; border:1px solid #334155; border-radius:10px; padding:14px 18px; margin-bottom:10px; }
+  .faq summary { color:#fff; font-weight:600; cursor:pointer; }
+  .faq p { color:#94a3b8; margin-top:8px; font-size:.95rem; }
+  .crumb { font-size:.85rem; color:#64748b; margin-bottom:20px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="crumb"><a href="/hutsix-public/">← Hutsix home</a></p>
+
+  <header>
+    <h1>Run an action when text appears on screen</h1>
+    <p>Building an OCR text trigger on Windows, and the settings that decide whether it is reliable</p>
+  </header>
+
+  <div class="note">
+    <strong>What you will build:</strong> a binding that reads a fixed screen area, looks for the text you specify in what it recognises, and runs a keyboard or mouse action when that text is present. A trigger needs both a query text and a captured area before it can be saved — neither alone is enough.
+  </div>
+
+  <section>
+    <h2>Steps</h2>
+    <ol class="steps">
+      <li><strong>Name the trigger and enter the query text.</strong> Use short, distinctive text that appears verbatim. "Ready" is a better query than "The raid is ready to begin" — OCR output varies, and matching is containment against what was recognised.</li>
+      <li><strong>Capture the area around that text.</strong> Tight is better. Extra UI clutter in the capture is the most common cause of false positives, because everything in the box is recognised.</li>
+      <li><strong>Set language codes and minimum confidence.</strong> Comma-separated codes, default <code>en</code>. Confidence starts at <code>0.60</code> — lower it slightly if text is being missed, raise it if it fires on lookalikes.</li>
+      <li><strong>Adjust preprocessing only if needed.</strong> Grayscale is on by default and usually helps. Upscale defaults to <code>1.0</code>; raising it helps small or thin text.</li>
+      <li><strong>Save, test in Action Monitor, then calibrate.</strong> Auto-calibration can suggest a better confidence and upscale value, and refine the area or query behaviour when manual settings are unstable.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The settings that actually matter</h2>
+    <table>
+      <thead><tr><th>Setting</th><th>Default</th><th>When to change it</th></tr></thead>
+      <tbody>
+        <tr><td>Query text</td><td>—</td><td>Short and distinctive. Matching is containment in the recognised text, not an exact line match</td></tr>
+        <tr><td>Capture area</td><td>—</td><td>Tighten whenever you see false positives</td></tr>
+        <tr><td>Min confidence</td><td><code>0.60</code></td><td>Lower for misses, raise for false positives</td></tr>
+        <tr><td>Languages</td><td><code>en</code></td><td>Comma-separated codes when the UI is not English</td></tr>
+        <tr><td>Case sensitive</td><td>off</td><td>Turn on only when case distinguishes the match</td></tr>
+        <tr><td>Use GPU</td><td>on when available</td><td>Leave on; CPU fallback works but is slower</td></tr>
+        <tr><td>Grayscale</td><td>on</td><td>Leave on unless colour carries meaning</td></tr>
+        <tr><td>Upscale</td><td><code>1.0</code></td><td>Raise for small text</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>When it misbehaves</h2>
+    <table>
+      <thead><tr><th>Symptom</th><th>Usual cause and fix</th></tr></thead>
+      <tbody>
+        <tr><td>No OCR output at all</td><td>Area too small, text too small, or the text is not actually readable on screen. Enlarge the area slightly, raise upscale, and check the text renders legibly.</td></tr>
+        <tr><td>Misses too often</td><td>Confidence too high or the area is too tight around text that shifts position. Lower confidence slightly and give the area a little margin.</td></tr>
+        <tr><td>False positives</td><td>Confidence too low, or unrelated text inside the capture. Raise confidence and tighten the area.</td></tr>
+        <tr><td>Fires repeatedly</td><td>Cooldown on the binding is too low. The trigger stays true while the text is on screen, so the cooldown is what prevents repeats.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="note warn">
+    <strong>OCR is the slowest trigger type.</strong> Text recognition costs far more than a pixel comparison, which is why unchanged frames are reused instead of re-read — an identical frame costs about a millisecond rather than tens of milliseconds. If a pixel or template trigger can express your condition, it will be cheaper and faster than OCR.
+  </div>
+
+  <section class="faq">
+    <h2>FAQ</h2>
+    <details><summary>Does the query have to match exactly?</summary><p>No. Matching checks whether your query text appears in the recognised output, so a short distinctive phrase works better than a full sentence. Turn on case sensitivity only when it matters.</p></details>
+    <details><summary>Can it read text in more than one language?</summary><p>Yes — languages are a comma-separated list of codes. More languages cost more per check, so list only what the UI actually shows.</p></details>
+    <details><summary>Why is OCR slower than a pixel trigger?</summary><p>Recognition is a model inference, not a colour comparison. It is still fast enough for most UI states, but a pixel or template trigger is the cheaper choice whenever it can describe the same condition.</p></details>
+    <details><summary>Will it read text in an image or canvas?</summary><p>It reads rendered pixels, so if the text is visible on screen it can generally be recognised — subject to size, contrast and the confidence threshold.</p></details>
+  </section>
+
+  <section>
+    <h2>Try it</h2>
+    <p>Free 7-day trial, no card required. Capture one label, set the query text, and watch the binding in Action Monitor before building on it.</p>
+    <p>
+      <a class="btn" href="https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download">⬇ Download Free Trial</a>
+      <a class="btn buy" href="https://panpanageas.gumroad.com/l/rrstan?code=HUTALT">Buy License — $49</a>
+    </p>
+  </section>
+
+  <footer>
+    Hutsix — Windows 10/11 (64-bit) · <a href="/hutsix-public/">Home</a> · <a href="https://github.com/Archangel-77/hutsix-public/releases">Releases</a> · <a href="https://www.youtube.com/@Hutsix">YouTube</a>
+    <br>Last reviewed 2026-10-25.
+  </footer>
+
+</main>
+</body>
+</html>
