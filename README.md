@@ -64,13 +64,13 @@ Hutsix solves this by combining reliable trigger detection (hotkeys, pixels, ima
 
 | Feature | Hutsix | AutoHotkey | Pulover | MaCRO |
 |---------|--------|-----------|---------|-------|
-| Visual Profile System | âœ… | âŒ | âŒ | âš ï¸ |
-| Pixel/Image/OCR Triggers | âœ… | âš ï¸ Limited | âŒ | âŒ |
-| CUDA GPU Acceleration | âœ… | âŒ | âŒ | âŒ |
-| Diagnostics Per Binding | âœ… | âŒ | âŒ | âš ï¸ |
-| No Coding Required | âœ… | âŒ | âœ… | âœ… |
-| Cross-Platform | âŒ | âŒ | âŒ | âŒ |
-| Free Forever | âŒ | âœ… | âœ… | âš ï¸ |
+| Visual Profile System | ✅ | ❌ | ❌ | ⚠️ |
+| Pixel/Image/OCR Triggers | ✅ | ⚠️ Limited | ❌ | ❌ |
+| CUDA GPU Acceleration | ✅ | ❌ | ❌ | ❌ |
+| Diagnostics Per Binding | ✅ | ❌ | ❌ | ⚠️ |
+| No Coding Required | ✅ | ❌ | ✅ | ✅ |
+| Cross-Platform | ❌ | ❌ | ❌ | ❌ |
+| Free Forever | ❌ | ✅ | ✅ | ⚠️ |
 
 **Hutsix is for:** Power users, QA/testers, and content creators who need advanced automation with visual debugging and GPU acceleration.
 
@@ -323,17 +323,17 @@ Actively developed. Ongoing work focuses on reliability, diagnostics, UX, and fe
 
 ## Versioning and Changelog
 
-- Current public showcase update: `2026-10-24`
+- Current public showcase update: `2026-10-26`
 - Release updates and feature changes are announced through release artifacts and official Hutsix channels.
 
 ## Latest Release
 
-Current: **v3.2.0** (October 24, 2026)
+Current: **v3.3.0** (October 26, 2026)
 
 Download (recommended): [Hutsix on Gumroad](https://panpanageas.gumroad.com/l/rrstan)
-- ðŸªŸ Windows MSI Installer: [Hutsix-x64.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v3.2.0/Hutsix-x64.msi)
+- 🪟 Windows MSI Installer: [Hutsix-x64.msi](https://github.com/Archangel-77/hutsix-public/releases/download/v3.3.0/Hutsix-x64.msi)
 
-ðŸ“‹ [Full Changelog](https://github.com/Archangel-77/hutsix-public/releases)
+📋 [Full Changelog](https://github.com/Archangel-77/hutsix-public/releases)
 
 ## Contributing
 
@@ -358,6 +358,6 @@ Built with major third-party technologies including:
 
 ## License
 
-Hutsix is proprietary software Â© 2025â€“2026 Panagiotis Panageas.
+Hutsix is proprietary software © 2025–2026 Panagiotis Panageas.
 Redistribution or modification is not permitted without written permission, except where required by third-party licenses.
 See `LICENSE` and `THIRD_PARTY_LICENSES.md` in the main project repository for full terms.
