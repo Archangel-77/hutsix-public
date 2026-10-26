@@ -1,5 +1,7 @@
 # Hutsix (Hut6)
 
+![Hutsix — Windows Automation Toolkit](hut6-banner.png)
+
 [![Windows](https://img.shields.io/badge/Platform-Windows%2010%2F11-blue?logo=windows&logoColor=white)](https://github.com/Archangel-77/hutsix-public)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://github.com/Archangel-77/hutsix-public)
 [![CUDA](https://img.shields.io/badge/Acceleration-CUDA%20Supported-76B900?logo=nvidia&logoColor=white)](https://github.com/Archangel-77/hutsix-public)
@@ -16,8 +18,19 @@ This repository is the public showcase for the project.
 |---|---|
 | [Get Hutsix on Gumroad](https://panpanageas.gumroad.com/l/rrstan) | [Join Hutsix Discord](https://discord.gg/4FXEknCxrq) |
 
+## Pricing and Trial
+
+- Free 7-day trial with the full feature set — no card required.
+- After the trial: a one-time **$49 USD** license, no subscription.
+- The trial is tied to your machine and cannot be reset by reinstalling.
+
+| Download the free trial | Buy a license |
+|---|---|
+| [Hutsix free trial on Softpedia](https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download) | [Buy on Gumroad — $49](https://panpanageas.gumroad.com/l/rrstan) |
+
 ## Table of Contents
 
+- [Pricing and Trial](#pricing-and-trial)
 - [Demo](#demo)
 - [Problem -> Solution](#problem---solution)
 - [Why Hutsix Over Alternatives?](#why-hutsix-over-alternatives)
@@ -29,10 +42,13 @@ This repository is the public showcase for the project.
 - [Performance and Acceleration](#performance-and-acceleration)
 - [System Requirements](#system-requirements)
 - [Quick Start](#quick-start)
+- [Sample Binding](#sample-binding-concept)
+- [Before / After Workflow](#before--after-workflow)
 - [Troubleshooting](#troubleshooting)
 - [Known Limitations](#known-limitations)
 - [Privacy](#privacy)
 - [Comparison Snapshot](#comparison-snapshot)
+- [Explore More](#explore-more)
 - [Roadmap](#roadmap)
 - [FAQ](#faq)
 - [Responsible Use](#responsible-use)
@@ -278,6 +294,11 @@ Hutsix supports CPU and GPU execution paths, depending on the module and environ
 | Diagnostics per binding | Yes | Commonly limited |
 | Focus guard + cooldown model | Yes | Tool-dependent |
 | Import/export profile workflows | Yes | Tool-dependent |
+
+## Explore More
+
+- Comparisons: [AutoHotkey](https://archangel-77.github.io/hutsix-public/vs/autohotkey/) · [GS Auto Clicker](https://archangel-77.github.io/hutsix-public/vs/gs-auto-clicker/) · [Pulover's Macro Creator](https://archangel-77.github.io/hutsix-public/vs/pulover-macro-creator/) · [SikuliX](https://archangel-77.github.io/hutsix-public/vs/sikulix/)
+- Guides: [Pixel trigger on Windows](https://archangel-77.github.io/hutsix-public/how-to/pixel-trigger-windows/) · [OCR trigger](https://archangel-77.github.io/hutsix-public/how-to/ocr-trigger/)
 
 ## Roadmap
 

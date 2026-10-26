@@ -76,6 +76,10 @@ A: Yes. Some apps and services prohibit automation. Users are responsible for ho
 - Download Free Trial: https://www.softpedia.com/get/System/OS-Enhancements/Hutsix.shtml#download
 - Comparison: Hutsix vs AutoHotkey: https://archangel-77.github.io/hutsix-public/vs/autohotkey/
 - Comparison: Hutsix vs GS Auto Clicker: https://archangel-77.github.io/hutsix-public/vs/gs-auto-clicker/
+- Comparison: Hutsix vs Pulover's Macro Creator: https://archangel-77.github.io/hutsix-public/vs/pulover-macro-creator/
+- Comparison: Hutsix vs SikuliX: https://archangel-77.github.io/hutsix-public/vs/sikulix/
+- Guide: Trigger on a pixel change (Windows): https://archangel-77.github.io/hutsix-public/how-to/pixel-trigger-windows/
+- Guide: Trigger on screen text with OCR (Windows): https://archangel-77.github.io/hutsix-public/how-to/ocr-trigger/
 - Buy License: https://panpanageas.gumroad.com/l/rrstan
 - Releases: https://github.com/Archangel-77/hutsix-public/releases
 - Discord: https://discord.gg/4FXEknCxrq

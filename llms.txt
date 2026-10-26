@@ -9,6 +9,10 @@
 - [Buy License](https://panpanageas.gumroad.com/l/rrstan): One-time $49 USD license after the 7-day free trial
 - [Hutsix vs AutoHotkey](https://archangel-77.github.io/hutsix-public/vs/autohotkey/): Honest comparison — scripting power versus no-code visual triggers
 - [Hutsix vs GS Auto Clicker](https://archangel-77.github.io/hutsix-public/vs/gs-auto-clicker/): Timer-based clicking versus screen-aware conditional automation
+- [Hutsix vs Pulover's Macro Creator](https://archangel-77.github.io/hutsix-public/vs/pulover-macro-creator/): Recorded free macros and exported AutoHotkey scripts versus screen-driven triggers
+- [Hutsix vs SikuliX](https://archangel-77.github.io/hutsix-public/vs/sikulix/): Free scripted image automation versus a packaged Windows app
+- [Pixel Trigger on Windows](https://archangel-77.github.io/hutsix-public/how-to/pixel-trigger-windows/): Fire an action when a pixel changes colour, with comparison modes and tolerance tuning
+- [OCR Trigger on Windows](https://archangel-77.github.io/hutsix-public/how-to/ocr-trigger/): Fire an action when screen text appears, with capture area and confidence settings
 
 ## Community & media
 - [Discord](https://discord.gg/4FXEknCxrq): Community discussion and support
