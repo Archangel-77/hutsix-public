@@ -1,192 +1,192 @@
 {
-  "version": "3.7.0",
+  "version": "3.8.0",
   "minimum_supported": null,
   "channel": "stable",
   "mandatory": false,
-  "published_at": "2026-10-28T22:57:22.966344+00:00",
+  "published_at": "2026-10-29T16:31:05.615733+00:00",
   "notes_url": null,
-  "notes": "**Hutsix v3.7.0**(released)\n\n### Running Profiles\n- **Fixed: closing a Hutsix window restarted a profile you had paused.** If you pressed the global **Pause** hotkey and then opened and closed any Hutsix window, the profile went back to watching the screen even though input was still paused. The status line showed the profile as active and the triggers kept matching, but every action was silently dropped, so nothing happened in the game. A pause now belongs to whoever asked for it: the profile only starts acting again when every pause has been lifted.",
+  "notes": "**Hutsix v3.8.0**(released)\n\n> ### \u26a0\ufe0f Action needed: re-save your pause bindings\n>\n> A binding with **\u201cAlso pause everything while this matches\u201d** ticked now *also runs its own action* \u2014 it pauses the other bindings **after** it acts.\n>\n> Bindings saved before this release keep the old behaviour: they pause, and **their action is never run**. Nothing breaks, but the action you attached to them stays unused, and the Profile Manager shows a warning on each one.\n>\n> **Fix:** open the profile, select the pause binding, and press **Save changes** once. No other edit is needed. Do this for every profile that has a pause binding.\n\n### Bindings\n- **The binding form now shows only what applies to your choice, and says why.** The window offered three look-alike buttons \u2014 Hotkey, Pause, Watchdog \u2014 with greyed states that depended on a rule you could not see, plus timing options that could be set on a binding that would never use them. The options are now grouped under the mode they belong to: **Shortcut options** (block the original key, repeat while held, debounce) appear only for a shortcut, **Watching options** (also pause other bindings, how often to check, skip the second check) only while watching the screen, and the few that apply to both \u2014 run when unfocused, priority, how long before it can run again \u2014 sit in their own group. With nothing selected every group is inert, and one line says what to choose first.\n- **The mode is no longer a guess.** Whether a trigger can be a shortcut or has to watch the screen depends on its type; the option you cannot use is now greyed *with the reason beside it*, and the one you can use is selected for you.\n- **A sentence under the form says what the binding will do** \u2014 *\"Press or hold \"left_click\" to run \"q_butt\". The game does not also receive the trigger. It repeats every 120 ms after 0 ms. It can run at most once every 6000 ms.\"* \u2014 and it follows the options as you change them.\n- **The bindings list shows the profile you are editing** instead of every profile on the machine.\n- **Create Profile stays disabled until the profile has a name and an app**, and the missing piece is named beside the button instead of appearing as a warning after the click.\n- **You can now change a binding after creating it.** Selecting a binding in the list loads its settings into the form, exactly as they are stored, and an *Editing \"\u2039name\u203a\"* banner appears above it with a rename field and a **Cancel** button. Change whatever you need and press **Save changes**; the binding keeps its place in the list. Clearing a field that was overriding the profile default restores the default instead of freezing the old number, and renaming is checked the same way as when creating.\n- **The tooltips now say what the option does to your game**, not what the field is called: what gets paused, what \"skip verification\" verifies, that a shortcut is only possible with a keyboard or mouse trigger, and what leaving a wait field blank means (it uses the global value). The four groups explain themselves too, and every tooltip in the window is checked for internal jargon.\n- **Saving an edit to the profile that is currently running offers to restart it**, since a running profile only reads its bindings at startup. The prompt appears only for that profile \u2014 editing a different one changes the file and nothing else.\n- **The profile window is one page now instead of two tabs.** The app picker, the profile name, the trigger, the action, how the binding runs and the list of your bindings are all on the same page, so nothing is hidden behind a step you have to remember to click. The profile half folds down to a single line once you have one \u2014 it opens by itself on a fresh install, where creating a profile is the only thing to do.\n- **Timing values have one box each.** The poll interval and the wait between runs used to be a slider *and* a box showing the same number; the slider is gone and the box is the value.\n- **Controls no longer disappear when they do not apply.** They are greyed, with the reason, instead of the window rearranging itself while you work.\n- **Nothing is out of reach on a small window.** The bindings half was wider and taller than the window and there was no way to scroll to the rest of it; the whole page now scrolls, and the text that made it too wide \u2014 a folder path under an empty list \u2014 moved into the tooltip.\n- **One action is highlighted at a time.** The window used to paint several buttons as equally important. Now the *Save* button is highlighted while the binding form can be saved, and *Create Profile* only when it cannot \u2014 the buttons stay where they are, only the highlight moves, and it follows your theme's accent colour instead of a fixed blue.\n- **One way to delete a profile, not two.** The profile is deleted from the bar at the bottom of the window, acting on the profile you picked in the list \u2014 the second \"Delete Existing Profile\" dropdown that duplicated it is gone.\n- **The trigger and action lists no longer have their own Refresh buttons.** They already reload when the files on disk change; the app list keeps its refresh shortcut.\n- **One list for triggers and one for actions, instead of a type followed by a file.** You used to answer \"which type?\" and then \"which file?\", with the type read back from a separate box. Now each list holds everything you have, grouped by type \u2014 *Mouse \u00b7 left click*, *Pixel \u00b7 hp_bar* \u2014 so the type always matches the file you picked. If a trigger a binding used has been deleted, nothing is preselected instead of the wrong one silently being kept.\n- **The profile half is four short rows instead of two columns.** *App* (filter, list, Refresh, Browse\u2026), the app's full path, *Name*, and the two auto-start options \u2014 which were spread over two panes under four separate headings. Browsing for an `.exe` now puts it in the same list the windows live in, so there is one answer to \"which app?\" rather than a list and a separate field that could both be set. The rows sit under one header that folds away once you have a profile, and the column no longer leaves a gap between the trigger and the action.\n- **The binding button says what it does**: *Add Binding* for a new one, *Save changes* while editing.\n- **An empty trigger or action list now says why it is empty.** With nothing to choose the box used to look broken \u2014 no entries, nothing to open. It reads *No triggers yet* with the line under it telling you where they come from (and the folder in the tooltip).\n- **A pause binding now runs its own action, then pauses everything else.** It used to be a guard and nothing more: the action you attached to it was never run, and the summary said otherwise. Now the binding acts first and pauses the other bindings after it, which is what makes *\"when the menu appears, press Escape and hold everything\"* possible. Only a pixel, AI image or template trigger can pause \u2014 a text trigger never gets the option, because the check cannot read text. Bindings saved before this change still pause without acting; see the note at the top of these notes.\n- **An impossible binding is refused when you save it, with a sentence instead of a code.** A binding whose mode does not fit its trigger (a pixel trigger declared as a shortcut, or nothing declared at all) is rejected by the backend now, and a profile that already contains one is flagged in its warnings rather than quietly never firing. Save errors also read as sentences \u2014 \"That trigger cannot run in that mode\u2026\" instead of `mode_mismatch`.\n- **Pausing yourself and a pause binding no longer fight each other.** Every pause now belongs to whoever asked for it: your global **Pause** hotkey, a pause binding, a focus pause and an open Hutsix window each hold their own. A pause binding clearing cannot resume input you paused to type, and unpausing cannot resume a profile whose pause binding is still matched \u2014 the status line names the reason that is left, and the profile is not labelled *active* while anything is still paused. A pause binding also cannot act on your game while you are paused, because a paused profile drops every action.\n- **Re-calibrating a trigger that is already in a binding now actually reaches that binding.** A profile keeps its own copy of each image/AI trigger and of the template it matches, so the copy is what runs \u2014 and until now the copy was only ever written when you first added the binding. Re-calibrating the trigger afterwards rewrote the original file, which the binding went on ignoring, so the trigger kept matching the old picture. Saving the binding again now refreshes the profile's copy and brings its templates with it. If the refresh cannot find something it says so in the profile's warnings instead of failing the save.\n\n### Triggers\n- **Auto-calibrating an image trigger can now measure what the watcher will actually see.** A folder of screenshots can only show what your game looked like when you took them; the calibration now offers to sample the trigger's own area on the live screen instead \u2014 same capture path, same HDR tone-mapping, same scaling as when the profile runs. It samples ten frames (adjustable), reports how many the model detected and at what confidence, and recommends the score threshold from that distribution rather than from a single screenshot.\n- **The suggested threshold comes with its evidence.** The window shows \"6/10 frames detected\", the weakest detection, the highest score seen on a frame with nothing in it, and the gap between them \u2014 and says so in one sentence (\"Separates: lowest detection 0.62, highest empty frame 0.18 \u2014 0.40 leaves 0.22 on one side and 0.22 on the other\"). When the two overlap, or nothing was detected at all, it says that instead of inventing a number and keeps your current threshold.\n- **An image (AI) trigger is judged by its model alone, with no hidden second check.** There used to be an optional extra verification pass, off unless the environment variable `HUT6_AI_IMAGE_VERIFY_ENABLED` was set. Turning it on was a trap: it compared the detection against saved screenshot templates at a fixed similarity, and when a trigger had none \u2014 the normal case, since the model does the work \u2014 it rejected the detection outright. Anything the model scored below 0.99 then stopped firing, silently. The pass is gone, so what the model says is what happens.\n- **Calibration no longer hands your trigger a temporary file.** After evaluating your screenshots the window used to save the best crop to the Windows temp folder and set it as the trigger's image, replacing whatever you had chosen \u2014 and temp files are cleaned up after a few days. Calibration now leaves your images alone, and no longer writes a crop at all.\n- **Editing a saved image trigger no longer throws away its calibration.** Opening a trigger and pressing Save wrote it back without the record of how its score threshold was measured \u2014 and, worse, without the class it was calibrated for, which the trigger uses when it re-finds its own area at start-up. Both are kept now, and re-calibrating an existing trigger starts on the class it already uses instead of *All classes*.\n- **The AI image trigger editor has its Auto-Calibrate button back.** It was implemented, wired and then hidden (*\"hide the entrypoint for now\"*) \u2014 so the whole calibration was unreachable. It now sits next to **Capture Area** and opens the window that measures your model against the trigger's own area.\n- **The image calibration window says what it actually does.** It does not retrain or adjust your model; it measures it and tells you which score threshold to use, and what to check when nothing is detected.\n- **Image calibration can now shrink the area it watches \u2014 but only when your model proves it can still see the element.** A smaller area is cheaper to check, and with template matching it is always better; with a trained model it is not, because cropping away the surroundings the model learned can make the element disappear. So while sampling, calibrate now also shows the model one cropped frame per detection and compares the two. If the element is still found in the crop, the tighter area (the element plus a small margin) is suggested and applied when you apply the result; if it is not, the area you captured is kept and the log says so. The checkbox is on by default and only appears when sampling the live area.\n- **Image calibration can report a real margin instead of a guess.** If the condition is rare \u2014 the element is only on screen now and then \u2014 add a folder of screenshots where it is *not* there. Calibrate scores those frames too and puts the threshold between the weakest detection and the highest scoring empty frame, then tells you both numbers and the gap. Without such a folder it still works as before, setting the threshold just below what it saw.\n- **A text trigger can now be pinned to a spot on the screen instead of watching a whole area.** *Auto-Calibrate* used to read every pixel in the capture and guess which text was the one you meant \u2014 two copies of the same number on a HUD were decided by confidence noise, and an image-file calibration ended up watching the entire screenshot. You now give it three things: the screenshot (or the captured area), the small picture that holds the text, and the text itself. Hutsix finds that picture in the screenshot, narrows the area to exactly where it was found, and only then reads the text inside it. The area it saves is the found element plus a margin \u2014 not the box one frame happened to read \u2014 so the trigger keeps matching when the text wraps or the frame is unlucky.\n- **The same calibration is now fast enough that the timeout no longer hides it.** The old sweep tried 35 combinations over the whole capture, up to 175 text reads, which is why it needed 8 seconds and often ran out. Locating the picture first means a handful of reads on a small crop: the default is 3 seconds, and a run that cannot find the picture now says so (\"the template is not in this source \u2014 is it from the same screen?\") instead of reporting a timeout.\n- **The calibration window shows you what it found.** The preview draws two rectangles: green for the area that will be saved, yellow for the text it actually read \u2014 so a wrong pick is visible before you apply it. A screenshot taken at a different resolution from your monitor is scaled to fit and the ratio is named, and if no monitor matches the picture, or several do, it refuses rather than guessing.\n- **A trigger keeps its template.** The picture and the calibration details are saved with the trigger, shown under the area, and copied into the profile when the trigger is attached to a binding \u2014 so re-calibrating a trigger that is already bound now updates the binding's own copy, templates included.\n- **Re-calibrating a known trigger is one click.** **Re-place** runs the calibration again from the scale the trigger was last calibrated at, so it looks in one place instead of trying three \u2014 useful after a UI scale change moved the element by a few pixels.\n- **A bad template is named instead of silently accepted.** A crop only a few pixels across, one that is nearly flat, or one that covers most of the screenshot still calibrates, but the status line says what will go wrong (\"That template is only a few pixels across \u2014 crop a bigger piece, or the text will not read\") and the warning is repeated in the log. A flat colour or a template larger than the screenshot is still refused outright.\n- **The calibration preview can be inspected at full size.** The preview pane in both Auto-Calibrate windows is fixed at 480\u00d7360, which draws a 1080p capture at 480\u00d7270 \u2014 small text unreadable, and the text trigger's one-pixel \"what OCR read\" outline effectively invisible. Each pane now has a small **Inspect\u2026** button under it that opens the result at native size: fitted to the screen first, with a *1:1* switch to see actual pixels. The highlight is re-drawn from the capture rather than enlarged from the shrunken preview, and the viewer names the colours (green = the area that gets saved, yellow = what OCR read this frame).\n- **An image trigger finds its own area when the screen changes.** The area you capture is stored as fixed coordinates, so changing the game's resolution or UI scale used to leave the trigger watching an empty patch with no error \u2014 it simply never fired. Hutsix now asks the trigger's own model where the element is once when the profile starts and watches that spot for the run; if it cannot find it, the saved area is kept and the profile names the trigger it could not re-place, rather than refusing to start. Saving a trigger is what records the search region, so re-save a trigger you created before this version to get the behaviour.\n- **A calibrated text trigger survives a resolution change.** The saved area is a fixed rectangle, so changing the game's resolution or UI scale used to leave the trigger watching an empty patch, with no error. Because the calibration now stores the picture it looked for, Hutsix finds it again once when the profile starts and watches where it actually is. If it cannot find it \u2014 the wrong screen is attached, the element was redrawn \u2014 the saved area is kept and the profile lists the trigger it could not re-place, rather than refusing to start.\n\n### Running Profiles\n- **Pausing a profile now stops it looking at the screen.** A paused profile used to keep taking the shared screenshot at the full rate of its fastest trigger \u2014 most of a CPU core on an ordinary desktop, a whole core on an HDR screen \u2014 even though every action was being dropped. Pausing now parks the screenshot loop and resuming restarts it within a tenth of a second.\n- **Every kind of pause now does that, and they no longer cancel each other.** The global **Pause** hotkey, a Hutsix window being open, and a profile paused because its window lost focus used to stop the actions but not the work: triggers kept checking the screen and the screenshot kept being taken. All three now stop the checking as well, and each holds its own share of the pause, so closing a window no longer restarts screenshots a pause is still holding. A paused profile also comes back with a clean slate, so a condition that was already true before the pause does not fire the instant you return \u2014 expect a trigger to react roughly 100\u2013200 ms after a pause is lifted, rather than on the first frame.\n- **A profile whose triggers are spread across the screen no longer screenshots the entire desktop to look at a few small areas.** The shared screenshot covered everything between the watched areas, so ten areas spread over a 4K screen meant capturing \u2014 and on an HDR screen colour-converting \u2014 3200x1161 pixels about twice a second. Each capture took over 0.4 s, every frame was older than a trigger would accept, and each trigger then took its own screenshot on top. Hutsix now shares one capture for the largest group of areas it can serve cheaply and lets triggers outside that group read only their own small area. A frame now arrives roughly every 90 ms instead of every 410 ms, and the shared capture is actually used again instead of being thrown away as stale. On the same profile the background cost dropped from about 0.7 of a core to almost nothing on an ordinary desktop.\n- An HDR screen used to be the expensive case, because every captured pixel was converted on the CPU. With 3.8.0's new capture path that is no longer true \u2014 a full 4K frame costs 5.7 ms instead of 766 ms \u2014 so an HDR profile now behaves like an ordinary one: all of its areas share a single capture instead of being split up, and the background cost is a fraction of what it was.\n- A profile whose areas sit together is unaffected: it still shares a single capture covering all of them, so its cost is unchanged.\n- If you want to tune that trade-off (for example to keep a very wide HUD layout in one capture), set `H6_CAPTURE_UNION_MAX_PX` \u2014 the largest combined area, in pixels, one shared capture may cover. The default is 1000000; `0` disables the limit and restores the old whole-desktop behaviour.\n\n### Performance\n- **Taking a screenshot no longer holds up the rest of the app.** Copying a captured frame used to walk it a row at a time in Python \u2014 over two thousand rows for a 4K screen \u2014 and everything else had to wait its turn between rows. That showed up as uneven input lag and menu stutter while a profile was running; with triggers spread across the screen, other work could stall for tens of milliseconds at a time, on every single capture. The copy is now a single step, and it produces exactly the same bytes.\n- **A monitor that no profile watches is no longer photographed at all.** Once every trigger on a monitor has stopped \u2014 because you switched profiles, or nothing in the profile looks at that screen \u2014 Hutsix used to keep taking a full screenshot of it twice a second for nothing. It now stops reading that monitor entirely and starts again the moment a trigger needs pixels.\n- **If the fast screenshot path breaks, Hutsix says so and carries on with the older one.** A failing capture used to be silent: triggers simply got slower and slower while nothing was logged. Three failed attempts now rebuild the capture engine once, and if it still fails that monitor falls back to the older method with a line in Diagnostics.\n- **Changing your resolution or plugging in a monitor no longer leaves Hutsix watching the wrong area.** The screen layout is re-checked every couple of seconds, and a change rebuilds the capture for the new layout instead of serving frames sized for the old one.\n- **Screenshots now go through Windows' modern capture by default \u2014 on HDR screens too.** Hutsix reads the screen through Windows Graphics Capture instead of the legacy copy: measured 0.2 ms instead of 8\u201317 ms for a 640\u00d7400 area, and it no longer waits on the desktop compositor \u2014 the wait behind the small hitches you see while a game is running. If the modern path is unavailable or starts failing, Hutsix falls back to the legacy one by itself and records it in Diagnostics.\n- **HDR screens are now converted by Windows instead of by Hutsix.** The old path copied every pixel of an HDR screen and turned it into a normal picture on the CPU, which is why an HDR monitor cost so much more to watch than an ordinary one \u2014 766 ms for one 4K frame, against 5.7 ms now. Windows Graphics Capture does the same conversion on the graphics card and hands Hutsix the finished picture, so watching an HDR screen costs about the same as watching an ordinary one.\n- **What this means for an HDR calibration you made before 3.8.0.** The two conversions were measured against each other on an HDR desktop running ordinary (non-HDR) content \u2014 a game window, the desktop, normal apps: identical pictures, and identical template-match scores. So the usual case needs no re-calibration. The two only differ on genuinely high-brightness content (a game running in HDR mode, an HDR video), and there the old conversion was arguably the less reliable of the two: it re-exposed the whole picture based on how bright it was, so a muzzle flash or a bright sky could shift every pixel in the area by tens of levels. **If a profile watches HDR content and its matches look off after updating, re-run that calibration once** \u2014 the calibrator now takes its sample from the same place the trigger does, so a saved template and the live picture cannot disagree.\n- If you preferred the old HDR conversion, set `HUT6_CAPTURE_BGR_BACKEND=gdi` \u2014 it also restores the previous colour path for screenshots.\n- **Fixed: a capture override written to `%LOCALAPPDATA%\\Hutsix\\.env` was silently ignored.** That per-machine file is the only one that survives a reinstall, and it only accepts a fixed list of settings \u2014 which did not include any of the capture switches, including the `HUT6_CAPTURE_BGR_BACKEND` rollback above. The list now covers them, so the documented escape hatches work where the help text says they do.\n- **Fixed: on an HDR screen, nothing moving meant a second and a half of nothing to watch.** Windows only hands over a picture when the screen changes, so with a still screen the HDR capture attempt waited its full 1.5 s timeout on *every* attempt \u2014 measured 1516 ms between frames where 500 ms was asked for, with each attempt then falling back to the ordinary capture it could have taken immediately. Frame delivery is back on schedule (measured ~507 ms), which means triggers read the shared screenshot again instead of each taking their own.\n- **Image and OpenCV triggers no longer force the old capture path.** They used to be saved with \"use the legacy method\" written into the trigger, a workaround for colour differences between the HDR conversion and the ordinary one. Those differences are gone (both paths now produce the same picture \u2014 verified pixel-for-pixel), so a newly saved or re-calibrated trigger uses the fast capture like everything else. Existing triggers keep the old setting until you re-save them; their pictures are identical, they just stay on the slower path.\n- **Pixel triggers read the fast capture too, and never wait for the screen to change.** A pixel trigger that could not reuse the shared screenshot fell back to the legacy screen read rather than the modern one, and on an HDR screen it first waited up to 1.5 s for a screen update that a still picture never produces (measured 1162 ms, per attempt). It now asks the same backend as everything else and falls straight through when there is no new frame; a cold probe costs about a millisecond once the engine is built.\n- **A profile no longer builds the capture engine inside a check.** Preparing it costs about 250 ms (device, capture session, frame pool), and that used to land in the first check of a profile \u2014 and again whenever it had been rebuilt after a period of use. It is now prepared when a profile starts and kept for as long as the profile runs.",
   "files": [
     {
       "name": "Hutsix-x64.msi",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/Hutsix-x64.msi",
-      "sha256": "039a83a0b3d085ec711ca3df03ee82fb71109cc50cce45d61cbc7611b92d6fb6",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/Hutsix-x64.msi",
+      "sha256": "98a63bce74b532e05c1c4c32b7fe9f1ef4523d24b91a9e5b4b382073fdec258a",
       "size": 1446887
     },
     {
       "name": "cab1.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab1.cab",
-      "sha256": "9b046f6650c08299abc47bc56887f3fd3685282f7eda8ce561fd3cb8454f0c26",
-      "size": 43200216
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab1.cab",
+      "sha256": "9db7be9470ecbb3e706b7e71204c7c8eda93b77ff4ae95f8109cdec17dd7c93e",
+      "size": 43199271
     },
     {
       "name": "cab10.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab10.cab",
-      "sha256": "066e1efa39fba8358bd9cb3f362a9463801359fb4da87c389eff06891703c42c",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab10.cab",
+      "sha256": "38c1f29319fb82f0c97e3c2fbc327be1ec479651392d850deea6b5c8d788acef",
       "size": 63582394
     },
     {
       "name": "cab11.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab11.cab",
-      "sha256": "14248895efec0d882cb6283d07b9415c73c46a45c9dc5d0c96e21366345f60b9",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab11.cab",
+      "sha256": "f62db613bcb211bcf952267400ad48ca6e6f600e44f275ce1a94c12912c70479",
       "size": 155802706
     },
     {
       "name": "cab12.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab12.cab",
-      "sha256": "febb303e9f8e928c94dd14b574e9d991f3312a387277663299d3c8942bb5343c",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab12.cab",
+      "sha256": "8d1b7fb3b14c372664dcbe92d8da6d8de4243ec79916ae518bd19df7a6338ea6",
       "size": 100685570
     },
     {
       "name": "cab13.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab13.cab",
-      "sha256": "c7d62970d8a37a56dc9b2679298f93674067e9b814fdd7863b2df485e2b5986b",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab13.cab",
+      "sha256": "bbd1411b8d013ed7f3fcc2895cfa8911def2be367f6c95c926713520adaaff26",
       "size": 284876297
     },
     {
       "name": "cab14.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab14.cab",
-      "sha256": "36d874c7d74d594eff27f789da3919463b36ca5b00a47c8e951825d4abbdd14e",
-      "size": 83531898
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab14.cab",
+      "sha256": "14155c5d588ece423d1d694d7c258fa2577772c957ba55a9298e27b381556fa6",
+      "size": 83607925
     },
     {
       "name": "cab15.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab15.cab",
-      "sha256": "9058d7f63101d98a0e5d6e3644d364ba3001e9af6877169579c3a9f67ea59a1a",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab15.cab",
+      "sha256": "eee6e5cf1c32a0ae089a266f01a314eec017ae8f455920980da1cd7693d0ae15",
       "size": 139432507
     },
     {
       "name": "cab16.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab16.cab",
-      "sha256": "5a989417aa947698e87c466bced6f1242c1a788e268f1dd59f8497c5d7bceca5",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab16.cab",
+      "sha256": "0d7bfddae35a23195717cf04a2e3048a45b0824d3901b65853fa1d63b7e508f4",
       "size": 77749422
     },
     {
       "name": "cab17.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab17.cab",
-      "sha256": "732aa9e80bf4477bf983e4b6761426cf576784d2a1e8462cb8b3c2ae1830d7fb",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab17.cab",
+      "sha256": "2f6cad8cc9d4734852ba61dbe5c4a316a552741539833a05fd7835426835ca42",
       "size": 77760498
     },
     {
       "name": "cab18.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab18.cab",
-      "sha256": "2cf07557faef780dc83e77b464e3575ce891f67853ee7b42460e727528542173",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab18.cab",
+      "sha256": "7770803443eeb1266a29f7817adf2ec47f9eb74a94d2699398a256a363faf439",
       "size": 230503438
     },
     {
       "name": "cab19.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab19.cab",
-      "sha256": "8873add23ae40c69645edb44031b5a883c8a9a7cf57e983c996b915862ed5389",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab19.cab",
+      "sha256": "68912b46264f61cd38c7a6497f3141337951fd297e0e68046e616a02129d84ce",
       "size": 17778319
     },
     {
       "name": "cab2.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab2.cab",
-      "sha256": "40dca8360e28b9cc4d0362570678bab45710a46664f3edf3ff91727487264629",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab2.cab",
+      "sha256": "be4c9ed8dbde85cb8828f87b6c2651279a104203036e4dec61ffe0fabf2091cb",
       "size": 87633431
     },
     {
       "name": "cab20.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab20.cab",
-      "sha256": "ae87b7273916d9039159f0e4cc204c65f6bb14841dee897df168710e69a6c01c",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab20.cab",
+      "sha256": "0d6745909f296d92dc311498b18f011609dffee0bb66d53f375597ca9f059da4",
       "size": 50929107
     },
     {
       "name": "cab21.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab21.cab",
-      "sha256": "77781ba8da220b4885eb2f197826bd7e9438deac8f798150e9a3f8bb16d271c5",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab21.cab",
+      "sha256": "1f859089e41c28af015ff73bfccfb0399dc289b364f3ffe58ea876e7430f4060",
       "size": 11385009
     },
     {
       "name": "cab22.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab22.cab",
-      "sha256": "69a136109106d1f714887158f38dec42a1f8969ea535c2f0707aa1dc4fe96c27",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab22.cab",
+      "sha256": "fd0a68c3fb9ecda55a2c81feb45c79ba77b884ed0ee981770e2e1deaf6981fa7",
       "size": 106023717
     },
     {
       "name": "cab23.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab23.cab",
-      "sha256": "696f6ba538c068bcb94ea56f04521c46fd82005d63a4addc83e9500075a077d1",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab23.cab",
+      "sha256": "17b2fe0fe28600aa58e6c74b3c4e5be79263597a3a33049fd7baacaa2c758ab3",
       "size": 39157048
     },
     {
       "name": "cab24.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab24.cab",
-      "sha256": "1d7ba3bf6eb6befffa3afaa00a020c8455cd366fa9300b64068a04c3f9392f2d",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab24.cab",
+      "sha256": "874e1cc764ae6e53399a1458a446338ed67d695e68cd18aa3d333f2278fefc48",
       "size": 21445062
     },
     {
       "name": "cab25.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab25.cab",
-      "sha256": "230eca0315e84eb1358b1ddfe15add7956d87ac5bfc770e70a1b2d2b1de73c2e",
-      "size": 63627188
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab25.cab",
+      "sha256": "6a2ca4a9af55782c229109bcb07496b1a7687e5ea6762e6938ec1d054b0a5f9e",
+      "size": 63627185
     },
     {
       "name": "cab26.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab26.cab",
-      "sha256": "01be59d639e6496b6dfbfb2cb1ad12f3ffe19a70bb0b43e80e070dcb216f0b97",
-      "size": 22508123
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab26.cab",
+      "sha256": "559857dca7dfe59e8aea90646b40cffcc614444d2d6f4d4031c1fc4956703aac",
+      "size": 22509202
     },
     {
       "name": "cab27.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab27.cab",
-      "sha256": "50adb678daee052804ad4cfa364f97fd612d6ba88116f8e0f69afc772ebb8b56",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab27.cab",
+      "sha256": "f4d27bb4ba495c82b8b6b8ca00cf7aac8996bc3b9ceb6d91d28e09efc4e835e5",
       "size": 76680570
     },
     {
       "name": "cab28.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab28.cab",
-      "sha256": "22d3f953866dfbbc47a8795c528a24bb27069df849d3d2e1f7cd355b11fce739",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab28.cab",
+      "sha256": "5deb4f03f5b47098d9da27ebc52b4d40b88b92d19a21315ae0da01e7e7621ae4",
       "size": 518152669
     },
     {
       "name": "cab29.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab29.cab",
-      "sha256": "b31b94abe05dcf33de11302dbd24e292839a4748d934239e885a36fc5e918d54",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab29.cab",
+      "sha256": "1add97ad80dd42d27c9c89d168f4b52b2f1b1ec92de3e1a0b3ccbc52bc83e019",
       "size": 9119627
     },
     {
       "name": "cab3.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab3.cab",
-      "sha256": "7a146b46af5444d753196850e3ed672120ac2c65f22ebb273448e5ed387824df",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab3.cab",
+      "sha256": "1757393fa399709f236fcd2b83d3e978c456f260cbd6504158c873963bcbd292",
       "size": 479280938
     },
     {
       "name": "cab4.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab4.cab",
-      "sha256": "53c01d6e41107ebc48d58c53e5c7f17aa81d1800c7896d23e8c633a136158771",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab4.cab",
+      "sha256": "c0981805df262a7f6236f5d68a326f4e69197fac3112c01f237cc45681f3e8e8",
       "size": 239046
     },
     {
       "name": "cab5.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab5.cab",
-      "sha256": "682e5760381b3ce624a6fe5aa755f31de9046b8a981b77b243f742c4ea0ca456",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab5.cab",
+      "sha256": "20c5bf51f94c8422ca58818d2bdf9b558d1746b60c22f8c9173692d91dbdafa1",
       "size": 195754679
     },
     {
       "name": "cab6.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab6.cab",
-      "sha256": "9151b3577c4375dd83d1f94c1e11cd2e3cccd1bb68faa6b226e9b6d3582ae994",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab6.cab",
+      "sha256": "9c48519bc1aa2c38f519f51904567ea7d75523e5d29dd27574308ab07a3b03f5",
       "size": 1951706
     },
     {
       "name": "cab7.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab7.cab",
-      "sha256": "e2b24f6135f76577b4e0c0464030bc82b9d3aaef0cbe2c69dfcd374cf7dd9845",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab7.cab",
+      "sha256": "6963b0935b2d0226739057ed0dae291214446f4e2e8772e0f28a12f7efdef228",
       "size": 328694350
     },
     {
       "name": "cab8.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab8.cab",
-      "sha256": "7f9f1d7cbe888742f7d60dbffa2d4d44f37d7d51ae0e6428ae1deb307ef9bcde",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab8.cab",
+      "sha256": "70eedc8715f76a9e21ea028b950da693c469fa41ffd00445b9e04d22cb88ba03",
       "size": 116854087
     },
     {
       "name": "cab9.cab",
-      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/cab9.cab",
-      "sha256": "8c790a0916b469ecd27eea687a33e34359357c9ad8bcf73d34f165f093fe2315",
+      "url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/cab9.cab",
+      "sha256": "b1763fe63cfb4f7a45f78e7ea120c58eb8818986cc0b506e4fe9ec3cd78c8f4d",
       "size": 192015631
     }
   ],
-  "payload_manifest_url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.7.0/payload-3.7.0.json"
+  "payload_manifest_url": "https://github.com/Archangel-77/hutsix-public/releases/download/v3.8.0/payload-3.8.0.json"
 }
